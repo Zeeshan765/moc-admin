@@ -1,0 +1,20 @@
+.orderlist{
+    flex: 4;
+    padding-top: 40px;
+    justify-content: center;
+    align-items: center;
+    border:1px solid black
+}
+.ordernav-container{
+    width: 70%;
+    height:9vh;
+      margin-left: 10rem;
+    background-color: rgb(8, 11, 58);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  
+   border : 1px solid black;
+   position: relative;
+   
+}

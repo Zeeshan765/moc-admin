@@ -1,0 +1,154 @@
+.btn-add {
+  float: right;
+  background-color: rgb(60, 18, 247);
+  color: white;
+  padding: 8px;
+
+  width: 10%;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  margin-right: 24px;
+  border-radius: 12px;
+}
+.componentList {
+  flex: 4;
+  padding-top: 40px;
+}
+
+.data-table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.data-table td,
+.data-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.data-table tr {
+  color: #03091f;
+  background-color: white;
+  font-size: 1.2rem;
+  font-weight: 540;
+}
+
+.data-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(226, 50, 147);
+  color: white;
+}
+.edit-btn {
+  background-color: rgb(50, 226, 65);
+  color: white;
+  padding: 8px;
+  width: 30%;
+  font-size: 1.3rem;
+}
+.del-btn {
+  background-color: rgb(197, 22, 22);
+  color: white;
+  padding: 8px;
+  margin-left: 1rem;
+  width: 30%;
+  font-size: 1.3rem;
+}
+
+/*
+  
+  table th {
+    border: 1px solid black;
+  }
+  table td {
+    border: 1px solid pink;
+  }
+  
+  .c-container{
+      padding-top: 40px;
+  }
+  
+  
+  .data-table {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    .data-table td,.data-table th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+  .data-table tr{
+        color: white;
+    }
+    .data-table tr:nth-child(even){ background-color: #03091f;}
+    
+   .data-table tr:hover { background-color: #03091f;;}
+    
+    .data-table th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: rgb(226, 50, 147);
+      color: white;
+    }
+     .footer{
+      font-weight: bold;
+      font-size: 30px;
+  }
+  
+  .checkout-btn{
+  
+      color: white;
+      background-color: rgb(226, 50, 147);
+      padding: 20px;
+      font-size: 22px;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+     margin-top: 2rem;
+  
+      margin-left: 2rem;
+      width: 18%;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+     
+     border-radius: 10px;
+      }
+  
+  
+  
+  */
+
+.productListItem {
+  display: flex;
+  align-items: center;
+}
+
+.productListImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.productListEdit {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: #3bb077;
+  color: white;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.productListDelete {
+  color: red;
+  cursor: pointer;
+}

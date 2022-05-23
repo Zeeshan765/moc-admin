@@ -1,0 +1,100 @@
+.featured {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.featuredItem_1 {
+  flex: 1;
+  margin: 10px 20px !important; 
+  padding: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  background-color: #7c2dd7 !important;
+  text-align: center !important;
+  justify-content: center !important;
+}
+.featuredItem_2 {
+  flex: 1;
+  margin: 10px 20px !important;
+  padding: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  background-color: #9151da !important;
+  text-align: center !important;
+}
+.featuredItem_3 {
+  flex: 1;
+  margin: 10px 20px !important;
+  padding: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  background-color:rgb(160, 124, 204) !important;
+  text-align: center !important;
+  margin-right: 20px !important;
+}
+
+.featuredTitle {
+  font-size: 28px;
+  color: white;
+  text-align: center !important;
+}
+
+.featuredMoneyContainer {
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+  color: white;
+  
+}
+.featuredMoneyPending{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center !important;
+  margin-left: 150px;
+}
+.featuredMoneyProcessing{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center !important;
+  margin-left: 150px;
+}
+.featuredMoneyDelivered{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center !important;
+  margin-left: 150px;
+}
+
+.featuredMoney {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center !important;
+  margin-left: 140px;
+}
+.featuredMoneyRate {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.featuredIcon {
+  font-size: 14px;
+  margin-left: 5px;
+  color: green;
+}
+
+.featuredIcon.negative {
+  color: red;
+}
+
+.featuredSub {
+  font-size: 15px;
+  color: gray;
+}

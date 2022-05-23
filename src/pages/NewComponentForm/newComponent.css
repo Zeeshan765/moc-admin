@@ -1,0 +1,55 @@
+.NewComponent {
+  flex: 4;
+
+  margin-left: 11rem;
+}
+
+.addProductForm {
+  margin-top: 29px;
+  margin-left: 4rem;
+}
+
+.addProductItem {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.addProductItem > label {
+  color: rgb(29, 26, 26);
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.addProductItem > input {
+  padding: 10px;
+  color: rgb(29, 26, 26);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.addProductItem > select {
+  padding: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.addProductItem > select > option {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.addProductButton {
+  margin-top: 10px;
+  padding: 7px 10px;
+  margin-left: 4px;
+  border: none;
+  border-radius: 10px;
+  background-color: darkblue;
+  color: white;
+  font-weight: 600;
+  width: 200px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}

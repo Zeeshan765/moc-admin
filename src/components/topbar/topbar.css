@@ -1,0 +1,76 @@
+.topbar {
+  width: 100%;
+  height: 80px;
+  background-color: rgb(46, 46, 49);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.topbarWrapper {
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid green; */
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 30px;
+  /* color: darkblue;*/
+  cursor: pointer;
+  display: inline-block;
+  color: rgb(238, 227, 248);
+  margin-left: 8px;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+}
+
+.topbarIconContainer {
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+  color: #555;
+}
+
+.topIconBadge {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.topAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.logoutbtn{
+  background: none;
+  border: none;
+  color: rgb(160, 84, 231);
+  font-size: 23px;
+  cursor: pointer;
+  display: flex;
+  padding: 9px;
+}
+.logoutbtn:hover{
+  background-color: rgb(135, 62, 202);
+  color: #ebdbfd;
+  transition: 0.5s;
+  border-radius: 12px;
+}
