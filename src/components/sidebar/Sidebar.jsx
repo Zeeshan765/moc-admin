@@ -33,10 +33,7 @@ const Sidebar = (props) => {
                 </li>
               </Link>
 
-              <li className="sidebarListItem">
-                <Timeline className="sidebarIcon" />
-                Analytics
-              </li>
+             
               <Link to="/allorders" className="link">
                 <li className="sidebarListItem">
                   <TrendingUp className="sidebarIcon" />
