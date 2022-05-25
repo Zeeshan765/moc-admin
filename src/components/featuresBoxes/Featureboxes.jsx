@@ -72,7 +72,7 @@ const Featureboxes = () => {
           <Money className="TotUserIcon" />
           <span className="featuredTitle">Total Revenue</span>
           <div className="featuredMoneyContainer">
-            <span className="featuredMoneyR">{revenue}</span>
+            <span className="featuredMoneyR"> Rs {revenue}</span>
           </div>
         </div>
       </div>
