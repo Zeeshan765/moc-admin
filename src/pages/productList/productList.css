@@ -11,6 +11,23 @@ border: none !important;
   margin-right: 30px !important;
   border-radius: 12px;
 }
+.btn-group{
+  margin-left: 210px;
+  margin-top: 18px; 
+  display: flex;
+  flex-direction: row;
+}
+.btn-style{
+  background-color: #dd4e4e;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  width: 100px;
+  padding: 10px;
+  margin-left: 35px;
+  margin-top: 19px; 
+
+}
 .btn-add:hover{
   background-color: #7110d1 !important;
   transition: 0.5s;

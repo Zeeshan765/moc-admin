@@ -8,7 +8,23 @@ font-weight: bold;
 margin-left: 35px;
 margin-top: -10px;
 }
+.btn-group{
+  margin-left: 210px;
+  margin-top: 18px; 
+  display: flex;
+  flex-direction: row;
+}
+.btn-style{
+  background-color: #dd4e4e;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  width: 100px;
+  padding: 10px;
+  margin-left: 35px;
+  margin-top: 19px; 
 
+}
 .userListUser {
   display: flex;
   align-items: center;

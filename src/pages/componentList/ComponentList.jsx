@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import apiService from "../../services/ApiService";
 import { toast } from "react-toastify";
 import Pagination from '@material-ui/lab/Pagination';
+import { Modal, Box } from "@material-ui/core";
 
 import "./componentList.css";
 import { DeleteOutlineOutlined, EditOutlined } from "@material-ui/icons";
@@ -10,7 +11,25 @@ const ComponentList = (props) => {
   const page = props.match.params.page ? props.match.params.page : 1;
   const [total, setTotal] = React.useState(0);
   const [perPage, setPerPage] = React.useState(10);
+ 
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  //id of the user to be deleted
+  const [id, setId] = useState("");
 
+console.log(id);
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
   const getData = () => {
     apiService.getComponents(page, perPage).then((data) => {
       setComponents(data.data.components);
@@ -23,6 +42,10 @@ const ComponentList = (props) => {
   const handleadd = () => {
     window.location.href = "/newcomponent";
   };
+  function handleView() {
+    console.log("view");
+    setOpen(true);
+  }
 
 
   return (
@@ -59,19 +82,12 @@ const ComponentList = (props) => {
                   </EditOutlined>
                   <DeleteOutlineOutlined
                     className='ActionIconDelete'
-                    onClick={(e) => {
-                      apiService
-                        .deleteComponent("/api/components/" + c._id)
-                        .then((data) => {
-                          
-                          toast.success("Component Deleted Successfully");
-                          console.log(data);
-                          console.log(getData());
-                        })
-                        .catch((err) => {
-                          console.log(err);
-                        });
+                    onClick={() => {
+                      handleView();
+                      setId(c._id);
+                      
                     }}
+                    
                   >
                     Delete
                   </DeleteOutlineOutlined>
@@ -97,6 +113,43 @@ const ComponentList = (props) => {
         <b>{(page - 1) * perPage + components.length}</b> of <b>{total}</b> results
         </p>
       </div>
+      <Modal
+        // className="modal"
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          
+          <h2>Are you Sure you want to delete ?</h2>
+          <div className='btn-group'>
+          <button className="btn-style" onClick={handleClose}>No</button>
+          <button className="btn-style" 
+             onClick={(e) => {
+                      apiService
+                        .deleteUser('/api/components/' +id)
+                        .then((data) => {
+                          toast.success('Component Deleted Successfully', {
+                            theme: "colored",
+                            position: "top-left",
+                          });
+                          console.log(id);
+
+                          console.log(data);
+                          console.log(getData());
+                          setOpen(false);
+                        })
+                        .catch((err) => {
+                          console.log(err);
+                        });
+                    }}
+          >
+            Yes
+          </button>
+          </div>
+        </Box>
+      </Modal>
     </>
   );
 };
