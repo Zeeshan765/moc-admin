@@ -63,6 +63,14 @@ const Sidebar = (props) => {
               <Link to="/components" className="link">
                 <li className="sidebarListItem">
                   <Storefront className="sidebarIcon" />
+                  Components
+                </li>
+              </Link>
+
+
+              <Link to="/components" className="link">
+                <li className="sidebarListItem">
+                  <Storefront className="sidebarIcon" />
                   Messages
                 </li>
               </Link>

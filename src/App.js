@@ -16,6 +16,7 @@ import ComponentList from './pages/componentList/ComponentList';
 import NewComponent from './pages/NewComponentForm/NewComponent';
 import EditComponent from './pages/EditComponent/EditComponent';
 import Order from './pages/order/Order';
+import Admin from "./components/AdminWrapper/Admin"
 import NewOrder from './pages/order/NewOrder';
 import Profile from './pages/Profile/Profile';
 import ChangePassword from './pages/ChangePassword/ChangePassword';
@@ -24,6 +25,7 @@ function App() {
   return (
     <>
       <Router>
+        <Admin>
         <ToastContainer />
         <Route path='/login' exact component={Login} />
         <Topbar />
@@ -46,6 +48,7 @@ function App() {
             {/* <Route path='/orders' exact component={NewOrder} /> */}
           </Switch>
         </div>
+        </Admin>
       </Router>
     </>
   );
