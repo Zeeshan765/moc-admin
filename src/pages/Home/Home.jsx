@@ -4,9 +4,12 @@ import Featureboxes from '../../components/featuresBoxes/Featureboxes';
 import React, { useEffect, useMemo, useState } from 'react';
 import './home.css';
 import apiService from '../../services/ApiService';
+//import BarChart from '../../components/BarChart/BarChart';
 
 const Home = () => {
   const [userStats, setUserStats] = useState([]);
+  const [userStats1, setUserStats1] = useState([]);
+  console.log(userStats1);
 
   const MONTHS = useMemo(
     () => [
@@ -41,6 +44,22 @@ const Home = () => {
     getStats();
   }, [MONTHS]);
 
+
+
+  // useEffect(() => {
+  //   const getStats1 = async () => {
+  //     try {
+  //       const res = await apiService.get('/api/user/stats').then((data) => {
+  //         setUserStats1(data.data);
+    
+  //       });
+  //     } catch {}
+  //   }
+  //   getStats1();
+  // }, []);
+
+
+
   return (
     <> 
       <div className='home'>
@@ -51,6 +70,11 @@ const Home = () => {
           grid
           dataKey='Active User'
         />
+        {/* <BarChart
+                labels={MONTHS.length === 0 ? ["pink"] : MONTHS[0].labels}
+                data1={userStats1.length === 0 ? [0, 0, 0, 0, 0, 0] : userStats1[0].total}
+               // data2={data.length === 0 ? [0, 0, 0, 0, 0, 0] : data[0].data[1].values}
+        /> */}
       </div>
     </>
   );

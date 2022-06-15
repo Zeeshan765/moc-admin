@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import apiService from "../../services/ApiService";
 import { toast } from "react-toastify";
 import Pagination from '@material-ui/lab/Pagination';
@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import "./componentList.css";
 import { DeleteOutlineOutlined, EditOutlined } from "@material-ui/icons";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   addBtn: {
@@ -35,7 +36,8 @@ const ComponentList = (props) => {
   const page = props.match.params.page ? props.match.params.page : 1;
   const [total, setTotal] = React.useState(0);
   const [perPage, setPerPage] = React.useState(10);
- 
+  const [keyword, setKeyword] = useState("");
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -71,11 +73,23 @@ console.log(id);
     setOpen(true);
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get(
+        `http://localhost:4000/api/components/search/${keyword}`
+      );
+      if (keyword.length > 0) {
+        setComponents(res.data);
+      }
+    };
+    // if (keyword.length === 0 || keyword.length > 2) fetchData();
+    fetchData();
+  }, [keyword]);
 
   return (
     <>
       <div className="componentList">
-      <Fab
+        <div className="first-component">     <Fab
           color="primary"
           aria-label="add"
           size="large"
@@ -86,12 +100,21 @@ console.log(id);
         </Fab>
 
         <p className='usersText'>Components List</p>
+        
+        <input
+            className="search"
+            placeholder="Search..."
+            onChange={(e) => setKeyword(e.target.value.toLowerCase())}
+          />
+        </div>
+ 
         <table className="data-table">
           <thead>
             <tr>
               <th>Component Id</th>
               <th>Component Name</th>
               <th>Price</th>
+              <th>Category</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -101,6 +124,8 @@ console.log(id);
                 <td>{c._id}</td>
                 <td>{c.name}</td>
                 <td>{c.price}</td>
+                <td>{c.category}</td>
+
                 <td>
                   <EditOutlined
                     className='ActionIconEdit'

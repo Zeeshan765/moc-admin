@@ -47,7 +47,9 @@ const Order = (props) => {
   const [type, settype] = useState("nothing");
   const [address, setaddress] = useState("nothing");
   const [amount, setamount] = useState("nothing");
-  console.log(orders);
+ // console.log(orders.address);
+  
+  //console.log(orders[0].address)
   const getData = () => {
     apiService.getOrders(page, perPage).then((data) => {
       
@@ -120,6 +122,7 @@ const Order = (props) => {
               <th>Order Id</th>
               <th>Total Amount</th> 
               <th>Status</th>
+              <th>Order Type</th>
               <th>Order Date</th>
               <th>Action</th>
             </tr>
@@ -131,6 +134,8 @@ const Order = (props) => {
                 <td>{p._id}</td>
                 <td>{p.amount}</td>
                 <td>{p.status}</td>
+                <td>{p.type}</td>
+
                 <td>{p.createdAt}</td>
                 <td>
                   {/* <button className="del-btn">Delete</button> */}

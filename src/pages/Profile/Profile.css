@@ -1,0 +1,15 @@
+.pass{
+    color: black;
+  }
+  .container{
+    margin-top: 50px;
+  }
+  .btn{
+  color: white;
+  background-color: white;
+  }
+  .container{
+    flex: 4;
+    margin-top: 10px;
+  /* padding-top: 40px; */
+  }

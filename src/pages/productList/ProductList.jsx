@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import apiService from '../../services/ApiService';
 import { toast } from 'react-toastify';
 import Pagination from '@material-ui/lab/Pagination';
@@ -6,9 +6,7 @@ import { Modal, Box } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 import { makeStyles } from "@material-ui/core/styles";
-
-
-
+import axios from 'axios';
 import './productList.css';
 import { EditOutlined, DeleteOutlineOutlined } from '@material-ui/icons';
 
@@ -37,6 +35,7 @@ const ProductList = (props) => {
   const page = props.match.params.page ? props.match.params.page : 1;
   const [total, setTotal] = React.useState(0);
   const [perPage, setPerPage] = React.useState(10);
+  const [keyword, setKeyword] = useState("");
 
   
   const [open, setOpen] = React.useState(false);
@@ -75,15 +74,27 @@ console.log(id);
     setOpen(true);
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get(
+        `http://localhost:4000/api/products/search/${keyword}`
+      );
+      if (keyword.length > 0) {
+        setProducts(res.data);
+      }
+    };
+    // if (keyword.length === 0 || keyword.length > 2) fetchData();
+    fetchData();
+  }, [keyword]);
+
+
+
+
   return (
     <>
       <div className='productList'>
-        {/* <button className='btn-add' onClick={handleadd}>
-        
-          Create
-        </button> */}
-         {/* <AddIcon onClick={handleadd} />         */}
-         <Fab
+      
+        <div className="first-component">     <Fab
           color="primary"
           aria-label="add"
           size="large"
@@ -93,13 +104,22 @@ console.log(id);
           <AddIcon />
         </Fab>
 
-        <p className='usersText'>Products List</p>
+        <p className='usersText'>Product List</p>
+        
+        <input
+            className="search"
+            placeholder="Search..."
+            onChange={(e) => setKeyword(e.target.value.toLowerCase())}
+          />
+        </div>
+ 
         <table className='data-table'>
           <thead>
             <tr>
               <th>Product Id</th>
               <th>Product Name</th>
               <th>Price</th>
+              <th>Category</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -109,6 +129,7 @@ console.log(id);
                 <td>{p._id}</td>
                 <td>{p.name}</td>
                 <td>{p.price} pkr</td>
+                <td>{p.category}</td>
                 <td>
                   <EditOutlined
                    className='ActionIconEdit'

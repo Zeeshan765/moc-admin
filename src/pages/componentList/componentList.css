@@ -31,6 +31,20 @@
   margin-top: 19px; 
 
 }
+.first-component{
+  display: flex;
+  /* justify-content: space-between ; */
+}
+.search{
+  padding: 10px;
+  margin-left: 23rem;
+  font-size: 20px;
+  width:25rem;
+  /* color: #03091f; */
+
+  background-color: #03091f;
+  color: white;
+}
 
 .data-table {
   font-family: Arial, Helvetica, sans-serif;

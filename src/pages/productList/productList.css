@@ -38,6 +38,20 @@ border: none !important;
   padding-top: 40px;
   margin-top: 2rem;
 }
+.first-component{
+  display: flex;
+  /* justify-content: space-between ; */
+}
+.search{
+  padding: 10px;
+  margin-left: 23rem;
+  font-size: 20px;
+  width:25rem;
+  /* color: #03091f; */
+
+  background-color: #03091f;
+  color: white;
+}
 
 .data-table {
   margin-top: 2rem;
