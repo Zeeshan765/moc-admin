@@ -3,10 +3,34 @@ import apiService from "../../services/ApiService";
 import { toast } from "react-toastify";
 import Pagination from '@material-ui/lab/Pagination';
 import { Modal, Box } from "@material-ui/core";
+import AddIcon from "@material-ui/icons/Add";
+import Fab from "@material-ui/core/Fab";
+import { makeStyles } from "@material-ui/core/styles";
+
 
 import "./componentList.css";
 import { DeleteOutlineOutlined, EditOutlined } from "@material-ui/icons";
+
+const useStyles = makeStyles((theme) => ({
+  addBtn: {
+    position: "absolute",
+    // bottom: theme.spacing(2),
+    right: theme.spacing(2),
+    margin: theme.spacing(-1),
+  },
+}));
+
+
+
+
+
+
+
+
 const ComponentList = (props) => {
+
+  const classes = useStyles();
+
   const [components, setComponents] = useState([]);
   const page = props.match.params.page ? props.match.params.page : 1;
   const [total, setTotal] = React.useState(0);
@@ -51,9 +75,16 @@ console.log(id);
   return (
     <>
       <div className="componentList">
-        <button className="btn-add" onClick={handleadd}>
-          Create
-        </button>
+      <Fab
+          color="primary"
+          aria-label="add"
+          size="large"
+          className={classes.addBtn}
+          onClick={handleadd}
+        >
+          <AddIcon />
+        </Fab>
+
         <p className='usersText'>Components List</p>
         <table className="data-table">
           <thead>
