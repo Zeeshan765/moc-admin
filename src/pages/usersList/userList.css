@@ -37,7 +37,11 @@ margin-top: -10px;
   object-fit: cover;
   margin-right: 10px;
 }
-
+.ActionIconChat
+{
+  color: blue;
+  cursor: pointer;
+}
 .userListEdit {
   border: none;
   border-radius: 10px;
@@ -222,3 +226,7 @@ table td {
   color: red;
   cursor: pointer;
 }
+.btn-style  :hover{
+  cursor: pointer;
+  
+  }

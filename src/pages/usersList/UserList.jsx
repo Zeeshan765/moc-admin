@@ -3,7 +3,9 @@ import './userList.css';
 import { toast } from 'react-toastify';
 import Pagination from '@material-ui/lab/Pagination';
 import { Modal, Box } from "@material-ui/core";
-import { DeleteOutlineOutlined } from '@material-ui/icons';
+import {  DeleteOutlineOutlined } from '@material-ui/icons';
+import { ChatBubbleOutlineOutlined } from '@material-ui/icons';
+import Chat from '../../components/Chat/Chat';  
 
 //import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -16,8 +18,10 @@ const UserList = (props) => {
   const [perPage, setPerPage] = React.useState(10);
 
   const [open, setOpen] = React.useState(false);
+  const [Chatopen, setChatOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleChatClose = () => setChatOpen(false);
   //id of the user to be deleted
   const [id, setId] = useState("");
 
@@ -52,6 +56,11 @@ console.log(id);
   function handleView() {
     console.log("view");
     setOpen(true);
+  }
+  function handleChat() {
+    console.log("view");
+    setChatOpen(true);
+    console.log(id);
   }
   return (
     <>
@@ -108,6 +117,33 @@ console.log(id);
                   >
                     Delete
                   </DeleteOutlineOutlined>
+
+                  <ChatBubbleOutlineOutlined
+                    className='ActionIconChat'
+                    onClick={() => {
+                      handleChat();
+                     
+                      
+                    }}
+                    // onClick={(e) => {
+                    //   apiService
+                    //     .deleteUser('/api/user/' + p._id)
+                    //     .then((data) => {
+                    //       toast.success('User Deleted Successfully', {
+                    //         theme: "colored",
+                    //       });
+                    //       console.log(p._id);
+
+                    //       console.log(data);
+                    //       console.log(getData());
+                    //     })
+                    //     .catch((err) => {
+                    //       console.log(err);
+                    //     });
+                    // }}
+                  >
+                    Chat
+                  </ChatBubbleOutlineOutlined>
                 </td>
               </tr>
             ))}
@@ -164,6 +200,24 @@ console.log(id);
           >
             Yes
           </button>
+          </div>
+        </Box>
+      </Modal>
+
+    {/* Chatmodel */}
+
+      <Modal
+        // className="modal"
+        open={Chatopen}
+        onClose={handleChatClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          
+          <Chat />
+          <div className='btn-group'>
+          <button className="btn-style" onClick={handleChatClose}>Close</button>
           </div>
         </Box>
       </Modal>

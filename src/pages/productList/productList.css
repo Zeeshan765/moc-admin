@@ -28,6 +28,10 @@ border: none !important;
   margin-top: 19px; 
 
 }
+.btn-style  :hover{
+cursor: pointer;
+
+}
 .btn-add:hover{
   background-color: #7110d1 !important;
   transition: 0.5s;
@@ -112,6 +116,17 @@ border: none !important;
 }
 .ActionIconEdit:hover{
   background-color: rgb(20, 172, 20);
+  color: #ddd;
+  transition: 0.5s;
+  border-radius: 15px;
+}
+.ActionIconChat{
+  color: blue;
+  cursor: pointer;
+  padding: 9px;
+}
+.ActionIconChat:hover{
+  background-color: rgb(20, 43, 172);
   color: #ddd;
   transition: 0.5s;
   border-radius: 15px;
