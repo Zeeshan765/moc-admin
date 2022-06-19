@@ -82,6 +82,7 @@ console.log(id);
       if (keyword.length > 0) {
         setProducts(res.data);
       }
+     
     };
     // if (keyword.length === 0 || keyword.length > 2) fetchData();
     fetchData();

@@ -68,7 +68,7 @@ const Sidebar = (props) => {
               </Link>
 
 
-              <Link to="/components" className="link">
+              <Link to="/messages" className="link">
                 <li className="sidebarListItem">
                   <Storefront className="sidebarIcon" />
                   Messages
