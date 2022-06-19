@@ -12,6 +12,7 @@
   
   .chatMenu {
     flex: 1;
+    height:95%;
     border: 1px solid black;
     margin-left: 1rem;
   }
@@ -22,17 +23,25 @@
     border: none;
     border-bottom: 1px solid gray;
   }
-  .names{
-margin:10px;
+
+  .chat{
+    margin:4px;
     padding: 9px;
   cursor: pointer;
+  height:4rem;
+  border: 1px solid black;
   display: flex;
+  background-color: rgb(192, 113, 126);
   align-items: center;
   border-radius: 10px;
+  }
+  .sender{
+    font-size: 18px;
+
 }
 
-.names:active,
-.names:hover {
+.chat:active,
+.chat:hover {
   background-color: #7110d1;
   transition: 0.5s;
   /* width: auto; */
@@ -40,17 +49,27 @@ margin:10px;
   
   .chatBox {
     flex: 5.5;
-    height:90%;
-    border : 3px solid pink;
+    height:80%;
+    /* border : 3px solid pink; */
+  }
+  .list{
+    margin-left: 3rem;
   }
   
   .chatBoxWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     position: relative;
   }
   
+  .msg-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 50%;
+    margin-bottom: 1rem;
+    /* border-bottom: 1px solid black; */
+  }
   .chatBoxTop {
     height: 100%;
     overflow-y: scroll;
@@ -58,7 +77,7 @@ margin:10px;
   }
   
   .chatBoxBottom {
-    margin-top: 5px;
+    margin-top: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -66,7 +85,9 @@ margin:10px;
   
   .chatMessageInput {
     width: 80%;
-    height: 20px;
+    font-size: 18px;
+    height: 70px;
+    margin-left: 9px;
     padding: 10px;
   }
   
@@ -75,6 +96,9 @@ margin:10px;
     height: 40px;
     border: none;
     border-radius: 5px;
+    font-size: 18px;
+
+    margin-right:8rem;
     cursor: pointer;
     background-color: teal;
     color: white;
