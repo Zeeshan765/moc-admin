@@ -241,7 +241,7 @@ console.log(id);
       >
         <Box sx={style}>
           
-          <Chat />
+          <Chat id = {id} />
           <div className='btn-group'>
           <button className="btn-style" onClick={handleChatClose}>Close</button>
           </div>
