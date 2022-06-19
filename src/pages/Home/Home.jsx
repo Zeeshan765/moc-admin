@@ -5,8 +5,27 @@ import React, { useEffect, useMemo, useState } from 'react';
 import './home.css';
 import apiService from '../../services/ApiService';
 //import BarChart from '../../components/BarChart/BarChart';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+
+
+const useStyles = makeStyles((theme) => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
+}));
+
+
+
 
 const Home = () => {
+  const classes = useStyles();
+  const [isLoading, setIsLoading] = useState(true);
+
   const [userStats, setUserStats] = useState([]);
   const [userStats1, setUserStats1] = useState([]);
   console.log(userStats1);
@@ -31,6 +50,7 @@ const Home = () => {
 
   useEffect(() => {
     const getStats = async () => {
+      setIsLoading(true);
       try {
         const res = await apiService.get('/api/user/stats');
         res.data.map((item) =>
@@ -40,6 +60,7 @@ const Home = () => {
           ])
         );
       } catch {}
+      setIsLoading(false);
     };
     getStats();
   }, [MONTHS]);
@@ -61,7 +82,10 @@ const Home = () => {
 
 
   return (
-    <> 
+    <>
+     {isLoading ? ( <Backdrop className={classes.backdrop} open ={isLoading} >
+    <CircularProgress color="inherit" />
+  </Backdrop>) : (
       <div className='home'>
         <Featureboxes />
         <Chart
@@ -76,6 +100,7 @@ const Home = () => {
                // data2={data.length === 0 ? [0, 0, 0, 0, 0, 0] : data[0].data[1].values}
         /> */}
       </div>
+  )}
     </>
   );
 };

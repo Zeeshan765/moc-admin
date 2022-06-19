@@ -20,6 +20,7 @@ import Admin from "./components/AdminWrapper/Admin"
 import NewOrder from './pages/order/NewOrder';
 import Profile from './pages/Profile/Profile';
 import ChangePassword from './pages/ChangePassword/ChangePassword';
+import Messanger from './pages/Messanger/Messanger';
 
 function App() {
   return (
@@ -45,6 +46,8 @@ function App() {
             <Route path='/newcomponent' exact component={NewComponent} />
             <Route path='/component/:id' exact component={EditComponent} />
             <Route path='/allorders/:page?' exact component={Order} />
+            <Route path='/messages' exact component={Messanger} />
+
             {/* <Route path='/orders' exact component={NewOrder} /> */}
           </Switch>
         </div>
