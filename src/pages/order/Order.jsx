@@ -37,7 +37,7 @@ const Order = (props) => {
   const [total, setTotal] = React.useState(0);
   const [perPage, setPerPage] = React.useState(10);
 
-  const [name, setName] = useState("");
+  //const [name, setName] = useState("");
   const [city, setCity] = useState("nothing");
   const [phoneNo, setphoneNo] = useState("nothing");
   const [paidAt, setpaidAt] = useState("nothing");
@@ -79,8 +79,8 @@ const Order = (props) => {
     console.log(p._id);
     apiService.get("/api/orders/find/" + p._id).then((res) => {
       console.log(res.data);
-      console.log(res.data.user.name);
-      setName(res.data.user.name);
+      //console.log(res.data.user.name);
+      //setName(res.data.user.name);
       setCity(res.data.city);
       setphoneNo(res.data.phoneNo);
       setpaidAt(res.data.paidAt);
@@ -105,7 +105,8 @@ const Order = (props) => {
           theme: "colored",
         });
         console.log(data);
-        window.location.href = "/allorders";
+        window.location.reload();
+       // window.location.href = "/allorders";
         //  props.history.push('/allorders');
       })
       .catch((error) => {
@@ -183,8 +184,8 @@ const Order = (props) => {
           <h1>Order Details</h1>
           <h3>Order Id:</h3>
           <h4>{id}</h4>
-          <h3>UserName:</h3>
-          <h4>{name}</h4>
+          {/* <h3>UserName:</h3>
+          <h4>{name}</h4> */}
           <h3>City:</h3>
           <h4> {city}</h4>
           <h3>Address:</h3>
