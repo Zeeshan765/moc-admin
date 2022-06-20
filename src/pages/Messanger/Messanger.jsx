@@ -109,13 +109,7 @@ console.log(conversation)
               );
             })}
 
-            {/* <input placeholder="Search for friends" className="chatMenuInput" />
-            {conversations.map((c) => (
-              <div onClick={() => setCurrentChat(c)}>
-                <Conversation conversation={c} currentUser={user} />
-              </div>
-            ))} */}
-          </div>
+                      </div>
         </div>
         <div className="chatBox">
           <div className="chatBoxWrapper">

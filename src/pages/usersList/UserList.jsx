@@ -65,7 +65,7 @@ console.log(id);
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(
-        `http://localhost:4000/api/user/search/${keyword}`
+        `https://moc-server.herokuapp.com/api/user/search/${keyword}`
       );
       if (keyword.length > 0) {
         setUser(res.data);

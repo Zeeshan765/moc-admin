@@ -77,7 +77,7 @@ console.log(id);
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(
-        `http://localhost:4000/api/products/search/${keyword}`
+        `https://moc-server.herokuapp.com/api/products/search/${keyword}`
       );
       if (keyword.length > 0) {
         setProducts(res.data);
