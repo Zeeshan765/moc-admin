@@ -92,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Login = (props) => {
+const Login1 = (props) => {
   const classes = useStyles();
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -118,7 +118,6 @@ const Login = (props) => {
         console.log(error);
         toast.error(error.response.data, {
           position: toast.POSITION.TOP_LEFT,
-          theme:"colored",
         });
       });
     }
@@ -262,4 +261,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default Login1;

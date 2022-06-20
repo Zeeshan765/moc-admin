@@ -5,7 +5,7 @@ import "./topbar.css";
 //import { Settings } from '@material-ui/icons';
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import apiService from "../../services/ApiService";
-
+import Admin from "../AdminWrapper/Admin"
 const Topbar = () => {
   //Logout
   const handlelogout = (e) => {
@@ -25,14 +25,17 @@ const Topbar = () => {
           <div className="topRight">
           
             <div className="topbarIconContainer">
-              
-              {!apiService.isAdmin() ? (
+              <Admin>
+
+              <button className="logoutbtn" onClick={handlelogout}>Logout</button>
+              </Admin>
+              {/* {!apiService.isAdmin() ? (
                 <Link to="/login">
                   <LockOpenIcon />
                 </Link>
               ) : (
                 <button className="logoutbtn" onClick={handlelogout}>Logout</button>
-              )}
+              )} */}
             </div>
             
           </div>

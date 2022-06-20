@@ -79,6 +79,7 @@ const NewComponent = (props) => {
       .post("/api/components", formData)
       .then((data) => {
         toast.success("Component add successfully",{
+          position: toast.POSITION.TOP_LEFT,
           theme:"colored",
         });
         console.log(data);
@@ -87,7 +88,7 @@ const NewComponent = (props) => {
       .catch((error) => {
         console.log(error.message);
         toast.error(error.response.data, {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.TOP_LEFT,
           theme: "colored",
         });
 

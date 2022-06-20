@@ -28,7 +28,7 @@ function App() {
       <Router>
         <Admin>
         <ToastContainer />
-        <Route path='/login' exact component={Login} />
+        <Route path='/Login' exact component={Login} />
         <Topbar />
         <div className='container'>
           <Sidebar />

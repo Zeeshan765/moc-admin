@@ -30,7 +30,7 @@ export default function Profile(props) {
       .then((res) => {
         console.log(res);
         toast.success("Profile Updated Successfully", {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.TOP_LEFT,
           theme: "colored",
         });
         props.history.push("/components");
@@ -38,7 +38,7 @@ export default function Profile(props) {
       .catch((error) => {
         console.log(error.message);
         toast.error(error.response.data, {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.TOP_LEFT,
           theme: "colored",
         });
       });

@@ -101,6 +101,7 @@ const EditComponent = (props) => {
       .put('/api/components/' + id, formData)
       .then((data) => {
         toast.success('Component update successfully',{
+          position: toast.POSITION.TOP_LEFT,
           theme:"colored",
         });
         console.log(data);

@@ -46,9 +46,9 @@ cursor: pointer;
   display: flex;
   /* justify-content: space-between ; */
 }
-.search{
+.search1{
   padding: 10px;
-  margin-left: 23rem;
+  margin-left: 33rem;
   font-size: 20px;
   width:25rem;
   /* color: #03091f; */

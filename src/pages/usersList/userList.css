@@ -57,7 +57,16 @@ margin-top: -10px;
   cursor: pointer;
 }
 
+.search{
+  padding: 10px;
+  margin-left: 26rem;
+  font-size: 20px;
+  width:25rem;
+  /* color: #03091f; */
 
+  background-color: #03091f;
+  color: white;
+}
 .btn-add {
   float: right;
   background-color: rgb(60, 18, 247);

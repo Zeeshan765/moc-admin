@@ -101,6 +101,7 @@ const Order = (props) => {
       .put("/api/orders/status/" + id, { status })
       .then((data) => {
         toast.success("Order update successfully", {
+          position: toast.POSITION.TOP_LEFT,
           theme: "colored",
         });
         console.log(data);

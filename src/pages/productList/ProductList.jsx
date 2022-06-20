@@ -95,7 +95,8 @@ console.log(id);
     <>
       <div className='productList'>
       
-        <div className="first-component">     <Fab
+        <div className="first-component">    
+         <Fab
           color="primary"
           aria-label="add"
           size="large"
@@ -194,8 +195,7 @@ console.log(id);
                         .then((data) => {
                           toast.success('Product Deleted Successfully', {
                             theme: "colored",
-                            position: "top-left",
-                          });
+                            position: toast.POSITION.TOP_LEFT,                          });
                           console.log(id);
 
                           console.log(data);
@@ -204,6 +204,7 @@ console.log(id);
                         })
                         .catch((err) => {
                           console.log(err);
+                          
                         });
                     }}
           >

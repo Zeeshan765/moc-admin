@@ -67,7 +67,10 @@ const Product = (props) => {
     apiService
       .put("/api/products/" + id, formData)
       .then((data) => {
-        toast.success("Product update successfully");
+        toast.success("Product update successfully",{
+          position: toast.POSITION.TOP_LEFT,
+          theme:"colored",
+        });
         console.log(data);
         props.history.push("/products");
       })

@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 const Admin = (props) => {
     React.useEffect(() => {
       if (!apiService.isAdmin() ) {
-        props.history.push("/login");
+        props.history.push("/Login");
       }
       
     }, []);

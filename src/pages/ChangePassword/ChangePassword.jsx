@@ -20,7 +20,7 @@ export default function ChangePassword(props) {
       .then((res) => {
         console.log(res);
         toast.success("Password Updated Successfully", {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.TOP_LEFT,
           theme: "colored",
         });
         props.history.push("/profile");
@@ -28,7 +28,7 @@ export default function ChangePassword(props) {
       .catch((error) => {
         console.log(error.message);
         toast.error(error.response.data, {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.TOP_LEFT,
           theme: "colored",
         });
       });

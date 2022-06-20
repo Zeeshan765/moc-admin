@@ -45,6 +45,7 @@ const NewProduct = (props) => {
       .post("/api/products", formData)
       .then((data) => {
         toast.success("Product Add successfully",{
+          position: toast.POSITION.TOP_LEFT,
           theme:"colored",
         });
         console.log(data);
@@ -53,7 +54,7 @@ const NewProduct = (props) => {
       .catch((error) => {
         console.log(error.message);
         toast.error(error.response.data, {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.TOP_LEFT,
           theme: "colored",
         });
 

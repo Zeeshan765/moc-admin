@@ -1,46 +1,29 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './userList.css';
 import { toast } from 'react-toastify';
 import Pagination from '@material-ui/lab/Pagination';
 import { Modal, Box } from "@material-ui/core";
 import {  DeleteOutlineOutlined } from '@material-ui/icons';
-import { ChatBubbleOutlineOutlined } from '@material-ui/icons';
-import Chat from '../../components/Chat/Chat';  
-// import Backdrop from '@material-ui/core/Backdrop';
-// import CircularProgress from '@material-ui/core/CircularProgress';
-//import { Link } from 'react-router-dom';
+
+import axios from 'axios';
 import { useState } from 'react';
 import apiService from '../../services/ApiService';
 
-// import { makeStyles } from '@material-ui/core/styles';
-
-
-
-
-// const useStyles = makeStyles((theme) => ({
-//   backdrop: {
-//     zIndex: theme.zIndex.drawer + 1,
-//     color: '#fff',
-//   },
-// }));
 
 
 
 
 const UserList = (props) => {
-  //const classes = useStyles();
   const [user, setUser] = useState([]);
   const page = props.match.params.page ? props.match.params.page : 1;
   const [total, setTotal] = React.useState(0);
   const [perPage, setPerPage] = React.useState(10);
-  //const [isLoading, setIsLoading] = useState(true);
   const [open, setOpen] = React.useState(false);
-  const [Chatopen, setChatOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleChatClose = () => setChatOpen(false);
   //id of the user to be deleted
   const [id, setId] = useState("");
+  const [keyword, setKeyword] = useState("");
 
 console.log(id);
   const style = {
@@ -62,7 +45,6 @@ console.log(id);
       apiService.getUsers(page, perPage).then((data) => {
         setUser(data.data.users1);
         setTotal(data.data.total);
-        //setIsLoading(true);
         
   
       });
@@ -70,19 +52,47 @@ console.log(id);
   };
   React.useEffect(getData, [page, perPage]);
 
-  // const handleDelete = (id) => {
-  //   setData(data.filter((item) => item.id !== id));
-  // };
+  
 
   function handleView() {
     console.log("view");
     setOpen(true);
   }
-  function handleChat() {
-    console.log("view");
-    setChatOpen(true);
-    console.log(id);
-  }
+  
+
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get(
+        `http://localhost:4000/api/user/search/${keyword}`
+      );
+      if (keyword.length > 0) {
+        setUser(res.data);
+      }
+     
+    };
+    // if (keyword.length === 0 || keyword.length > 2) fetchData();
+    fetchData();
+  }, [keyword]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
     
@@ -90,6 +100,12 @@ console.log(id);
     <div className='productList'>
       
         <p className='usersText'>Users List</p>
+        <input
+            className="search1"
+            placeholder="Search..."
+            onChange={(e) => setKeyword(e.target.value.toLowerCase())}
+          />
+        
     
         <table className='data-table'>
           <thead>
@@ -143,38 +159,14 @@ console.log(id);
                     Delete
                   </DeleteOutlineOutlined>
 
-                  <ChatBubbleOutlineOutlined
-                    className='ActionIconChat'
-                    onClick={() => {
-                      handleChat();
-                     
-                      
-                    }}
-                    // onClick={(e) => {
-                    //   apiService
-                    //     .deleteUser('/api/user/' + p._id)
-                    //     .then((data) => {
-                    //       toast.success('User Deleted Successfully', {
-                    //         theme: "colored",
-                    //       });
-                    //       console.log(p._id);
-
-                    //       console.log(data);
-                    //       console.log(getData());
-                    //     })
-                    //     .catch((err) => {
-                    //       console.log(err);
-                    //     });
-                    // }}
-                  >
-                    Chat
-                  </ChatBubbleOutlineOutlined>
+                  
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div>        <Pagination
+        <div>     
+             <Pagination
           count={Math.ceil(total / perPage)}
           className="paginationUserList"
           variant='outlined'
@@ -232,21 +224,7 @@ console.log(id);
 
     {/* Chatmodel */}
 
-      <Modal
-        // className="modal"
-        open={Chatopen}
-        onClose={handleChatClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          
-          <Chat id = {id} />
-          <div className='btn-group'>
-          <button className="btn-style" onClick={handleChatClose}>Close</button>
-          </div>
-        </Box>
-      </Modal>
+      
       </div>
 
     </>
