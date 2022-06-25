@@ -38,6 +38,9 @@
   font-weight: 600;
   font-size: 1rem;
 }
+.productTitle{
+  margin-right: 44rem;
+}
 
 .addProductButton {
   margin-top: 10px;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./product.css";
 import apiService from "../../services/ApiService";
 import { toast } from "react-toastify";
-
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 //import Chart from '../../components/chart/Chart';
 
 const Product = (props) => {
@@ -78,6 +78,20 @@ const Product = (props) => {
         console.log(error.message);
       });
   };
+
+
+//Handle Back
+const handleback = ()=>{
+  props.history.push("/products")
+}
+
+
+
+
+
+
+
+
   // let formData = new FormData();
   // formData.append('name', name);
   // formData.append('price', price);
@@ -93,6 +107,9 @@ const Product = (props) => {
     <>
       <div className="product">
         <div className="productTitleContainer">
+           <ArrowBackIcon size = "large" onClick={handleback}/>
+            
+           
           <h1 className="productTitle"> Update Product</h1>
         </div>
 

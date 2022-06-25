@@ -4,6 +4,7 @@ import './editComponent.css';
 import { toast } from 'react-toastify';
 import apiService from '../../services/ApiService';
 //import Chart from '../../components/chart/Chart';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const EditComponent = (props) => {
   const [name, setName] = useState("");
@@ -111,6 +112,23 @@ const EditComponent = (props) => {
         console.log(error.message);
       });
   };
+
+
+
+
+
+
+
+
+
+//Handle Back
+  const handleback = ()=>{
+    props.history.push("/components")
+  }
+  
+
+
+
   // let formData = new FormData();
   // formData.append('name', name);
   // formData.append('price', price);
@@ -133,6 +151,7 @@ const EditComponent = (props) => {
     <>
       <div className='product'>
         <div className='productTitleContainer'>
+        <ArrowBackIcon size = "large" onClick={handleback}/>
           <h1 className='productTitle'> Update Component</h1>
           <button className='' onClick={show}>
             show

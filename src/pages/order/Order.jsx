@@ -196,6 +196,7 @@ const Order = (props) => {
         aria-describedby='modal-modal-description'
       >
         <Box sx={style} className='modal'>
+          <button className='close-btn' onClick={handleClose}>CLOSE</button>
           <h1>Order Details</h1>
           <h3>Order Id:</h3>
           <h4>{id}</h4>

@@ -14,7 +14,9 @@
   flex-direction: column;
   margin-bottom: 10px;
 }
-
+.productTitle{
+  margin-right: 44rem;
+}
 .addProductItem > label {
   color: rgb(29, 26, 26);
   font-weight: 600;
