@@ -17,6 +17,7 @@ const Product = (props) => {
   const [info2, setinfo2] = useState("");
   const [info3, setinfo3] = useState("");
   const [info4, setinfo4] = useState("");
+  const[image1,setImage1]=useState("");
   // console.log({
   //   name,
   //   price,
@@ -42,7 +43,7 @@ const Product = (props) => {
       setDescription(res.data.description);
       setCompany(res.data.company);
       setCategory(res.data.category);
-      setImage(res.data.picture);
+      setImage1(res.data.picture);
       setinfo1(res.data.info1);
       setinfo2(res.data.info2);
       setinfo3(res.data.info3);
@@ -236,6 +237,12 @@ const handleback = ()=>{
                   setImage(e.target.files[0]);
                 }}
               />
+            </div>
+
+            <div className="addProductItem">
+              <label>Image</label>
+              <img src=  {image1} alt='' />
+            
             </div>
             <button
               className="addProductButton"

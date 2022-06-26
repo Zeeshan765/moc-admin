@@ -27,7 +27,7 @@ const ProductList = (props) => {
   const [total, setTotal] = React.useState(0);
   const [perPage, setPerPage] = React.useState(10);
   const [keyword, setKeyword] = useState('');
-
+// const[company,setCompany]=useState('');
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -126,7 +126,9 @@ const ProductList = (props) => {
               <th>Product Id</th>
               <th onClick={() => sorting('name')}>Product Name</th>
               <th onClick={() => sorting('price')}>Price</th>
+              <th onClick={() => sorting('company')}>Brand</th>
               <th onClick={() => sorting('category')}>Category</th>
+              
               <th>Actions</th>
             </tr>
           </thead>
@@ -135,7 +137,8 @@ const ProductList = (props) => {
               <tr key={index}>
                 <td>{p._id}</td>
                 <td>{p.name}</td>
-                <td>{p.price} pkr</td>
+                <td> Rs {p.price}</td>
+                <td>{p.company}</td>
                 <td>{p.category}</td>
                 <td>
                   <EditOutlined
