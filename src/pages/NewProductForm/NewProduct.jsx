@@ -44,9 +44,9 @@ const NewProduct = (props) => {
     apiService
       .post("/api/products", formData)
       .then((data) => {
-        toast.success("Product Add successfully",{
+        toast.success("Product Add successfully", {
           position: toast.POSITION.TOP_LEFT,
-          theme:"colored",
+          theme: "colored",
         });
         console.log(data);
         props.history.push("/products");
@@ -57,7 +57,6 @@ const NewProduct = (props) => {
           position: toast.POSITION.TOP_LEFT,
           theme: "colored",
         });
-
       });
   };
 
@@ -65,7 +64,7 @@ const NewProduct = (props) => {
     <div className="newProduct">
       <h1 className="addProductTitle">Create Product</h1>
       <form className="addProductForm">
-        <div className="addProductItem">
+        <div className="addProductItem" >
           <label>Product Name</label>
           <input
             type="text"
@@ -75,7 +74,7 @@ const NewProduct = (props) => {
             }}
           />
         </div>
-        <div className="addProductItem">
+        <div className="addProductItem" style={{marginLeft: "270px", marginRight: "30px"}}>
           <label>Price</label>
           <input
             type="text"
@@ -86,7 +85,7 @@ const NewProduct = (props) => {
           />
         </div>
 
-        <div className="addProductItem">
+        <div className="addProductItem" >
           <label>Info#1</label>
           <input
             type="text"
@@ -96,7 +95,7 @@ const NewProduct = (props) => {
             }}
           />
         </div>
-        <div className="addProductItem">
+        <div className="addProductItem" style={{marginLeft: "270px", marginRight: "30px"}}>
           <label>Info#2</label>
           <input
             type="text"
@@ -118,7 +117,7 @@ const NewProduct = (props) => {
           />
         </div>
 
-        <div className="addProductItem">
+        <div className="addProductItem" style={{marginLeft: "270px", marginRight:"30px"}}>
           <label>Info#4</label>
           <input
             type="text"
@@ -129,9 +128,10 @@ const NewProduct = (props) => {
           />
         </div>
 
-        <div className="addProductItem">
+        <div className="addProductItem" style={{marginRight:"270px"}}>
           <label>Description</label>
-          <input
+          <textarea
+            className="textfield"
             type="text"
             placeholder="Enter Product Description"
             onChange={(e) => {
@@ -139,7 +139,7 @@ const NewProduct = (props) => {
             }}
           />
         </div>
-        <div className="addProductItem">
+        <div className="addProductItem" style={{marginRight:"70px"}}>
           <label>Company</label>
           <input
             type="text"

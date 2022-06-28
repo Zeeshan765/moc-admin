@@ -14,28 +14,45 @@ import {
   WorkOutline,
   Report,
 } from "@material-ui/icons";
+import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import apiService from "../../services/ApiService";
-const Sidebar = (props) => {
-  return (
-    <>   
-   
+import { useLocation } from "react-router-dom";
 
+const Sidebar = (props) => {
+  const location = useLocation();
+  console.log(location.pathname);
+  const getColor = (currentPath) => {
+    if (location.pathname === currentPath) {
+      return "#7110d1";
+      // console.log("#7110d1");
+    }
+  };
+
+  return (
+    <>
       <div className="sidebar">
         <div className="sidebarWrapper">
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">Dashboard</h3>
             <ul className="sidebarList">
-              <Link to="/" className="link">
-                <li className="sidebarListItem">
+              <Link
+                to="/"
+                className="link"
+                
+              >
+                <li style={{ backgroundColor: getColor("/") }}  className="sidebarListItem">
                   <LineStyle className="sidebarIcon" />
-                  Home 
+                  Home
                 </li>
               </Link>
 
-             
-              <Link to="/allorders" className="link">
-                <li className="sidebarListItem">
+              <Link
+                to="/allorders"
+                style={{ backgroundColor: getColor("/allorders") }}
+                className="link"
+              >
+                <li style={{ backgroundColor: getColor("/allorders") }}  className="sidebarListItem">
                   <TrendingUp className="sidebarIcon" />
                   Orders
                 </li>
@@ -45,37 +62,35 @@ const Sidebar = (props) => {
           </div>
           <div className="sidebarMenu">
             <ul className="sidebarList">
-            
               <Link to="/users" className="link">
-                <li className="sidebarListItem">
+                <li style={{ backgroundColor: getColor("/users") }}  className="sidebarListItem">
                   <PermIdentity className="sidebarIcon" />
                   Users
                 </li>
               </Link>
-            
+
               <Link to="/products" className="link">
-                <li className="sidebarListItem">
+                <li style={{ backgroundColor: getColor("/products") }}  className="sidebarListItem">
                   <Storefront className="sidebarIcon" />
                   Products
                 </li>
               </Link>
 
               <Link to="/components" className="link">
-                <li className="sidebarListItem">
+                <li style={{ backgroundColor: getColor("/components") }}  className="sidebarListItem">
                   <Storefront className="sidebarIcon" />
                   Components
                 </li>
               </Link>
 
-
               <Link to="/messages" className="link">
-                <li className="sidebarListItem">
+                <li style={{ backgroundColor: getColor("/messages") }}  className="sidebarListItem">
                   <Storefront className="sidebarIcon" />
                   Messages
                 </li>
               </Link>
               <Link to="/profile" className="link">
-                <li className="sidebarListItem">
+                <li style={{ backgroundColor: getColor("/profile") }}  className="sidebarListItem">
                   <Storefront className="sidebarIcon" />
                   Profile
                 </li>
@@ -123,10 +138,7 @@ const Sidebar = (props) => {
           </div> */}
         </div>
       </div>
-      
     </>
-    
-
   );
 };
 

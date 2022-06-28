@@ -8,7 +8,10 @@ import { DeleteOutlineOutlined } from '@material-ui/icons';
 import axios from 'axios';
 import { useState } from 'react';
 import apiService from '../../services/ApiService';
-
+import {
+ 
+  Search,
+} from "@material-ui/icons";
 const UserList = (props) => {
   const [user, setUser] = useState([]);
   const page = props.match.params.page ? props.match.params.page : 1;
@@ -96,7 +99,7 @@ const UserList = (props) => {
             <tr>
               <th>User Id</th>
               <th onClick={() => sorting('name')}>User Name </th>
-              <th>Email</th>
+              <th onClick={() => sorting('email')}>Email</th>
               <th>Phone No </th>
 
               <th>Actions</th>

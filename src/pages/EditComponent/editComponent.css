@@ -3,9 +3,11 @@
   padding: 20px;
   margin-left: 11rem;
 }
-.addProductForm {
-  margin-top: 29px;
-  margin-left: 4rem;
+.addProductFormEdit {
+  margin-top: 19px;
+  margin-left: 2rem;
+  /* background-color: aqua; */
+  width: 90%;
 }
 
 .addProductItem {
@@ -121,9 +123,15 @@
 
 .productBottom {
   padding: 20px;
+  /* background-color: bisque; */
+  height: 80%;
   margin: 20px;
+  margin-right: 40px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+.backbtn{
+  font-size: 60px !important;
 }
 
 .productForm {

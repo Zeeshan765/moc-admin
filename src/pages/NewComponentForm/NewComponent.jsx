@@ -78,9 +78,9 @@ const NewComponent = (props) => {
     apiService
       .post("/api/components", formData)
       .then((data) => {
-        toast.success("Component add successfully",{
+        toast.success("Component add successfully", {
           position: toast.POSITION.TOP_LEFT,
-          theme:"colored",
+          theme: "colored",
         });
         console.log(data);
         props.history.push("/components");
@@ -91,7 +91,6 @@ const NewComponent = (props) => {
           position: toast.POSITION.TOP_LEFT,
           theme: "colored",
         });
-
       });
   };
   // const validation = (e) => {
@@ -102,18 +101,15 @@ const NewComponent = (props) => {
   //     toast.error("Name  Must be  greater than 3 Characters and Less than 15 Characters ");
   //   }  else {
   //     handlecreate(e);
-      
 
   //   }
   // };
-
- 
 
   return (
     <div className="NewComponent">
       <h1 className="addProductTitle">Create Component</h1>
 
-      <form className="addProductForm">
+      <form className="addComponentForm">
         <div className="addProductItem">
           <label>Category</label>
           <select
@@ -188,7 +184,10 @@ const NewComponent = (props) => {
           </select>
         </div>
 
-        <div className="addProductItem">
+        <div
+          className="addProductItem"
+          style={{ marginLeft: "30px", marginRight: "190px" }}
+        >
           <label>Company</label>
           <input
             type="text"
@@ -199,7 +198,7 @@ const NewComponent = (props) => {
           />
         </div>
 
-        <div className="addProductItem">
+        <div className="addProductItem" style={{ marginRight: "90px" }}>
           <label>Component Name</label>
           <input
             type="text"
@@ -209,7 +208,7 @@ const NewComponent = (props) => {
             }}
           />
         </div>
-        <div className="addProductItem">
+        <div className="addProductItem" style={{ marginRight: "230px" }}>
           <label>Price</label>
           <input
             type="text"
@@ -272,9 +271,13 @@ const NewComponent = (props) => {
             />
           </div>
         </div>
-        <div className="addProductItem">
+        <div
+          className="addProductItem"
+          style={{ marginLeft: "40px", marginRight: "490px" }}
+        >
           <label>Description</label>
-          <input
+          <textarea
+            className="textfield"
             type="text"
             placeholder="Enter Product Description"
             onChange={(e) => {

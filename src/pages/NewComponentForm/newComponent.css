@@ -1,14 +1,40 @@
 .NewComponent {
   flex: 4;
-
-  margin-left: 11rem;
+  margin-left: 9rem;
+  margin-top: 70px;
+  float: left;
+  margin-right: 150px;
 }
-
-.addProductForm {
+.addProductTitle {
+  font-size: 35px;
+  color: #b04edd;
+}
+.addComponentForm {
   margin-top: 29px;
   margin-left: 4rem;
+  /* background-color: antiquewhite; */
+  width: 100%;
+}
+form {
+  /* display: inline-block !important; */
+  /* background-color: aquamarine; */
+  width: 70%;
+  height: 100%;
+  display: flex !important;
+  flex-flow: row wrap !important;
+  /* align-items: center !important; */
 }
 
+input {
+  width: 160%;
+  height: 50px;
+
+  /* display: inline-block !important; */
+}
+label {
+  width: 240px;
+  /* display: inline-block !important; */
+}
 .addProductItem {
   width: 200px;
   display: flex;

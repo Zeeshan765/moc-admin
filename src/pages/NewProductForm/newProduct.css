@@ -1,14 +1,50 @@
 .newProduct {
   flex: 4;
-
-  margin-left: 11rem;
+  margin-left: 9rem;
+  margin-top: 70px;
+  float: left;
+  margin-right: 150px;
+}
+.addProductTitle {
+  font-size: 35px;
+  color: #b04edd;
 }
 
 .addProductForm {
   margin-top: 29px;
-  margin-left: 4rem;
+  margin-left: 2rem;
+}
+form {
+  /* display: inline-block !important; */
+  /* background-color: aquamarine; */
+  width: 70%;
+  height: 100%;
+  display: flex !important;
+  flex-flow: row wrap !important;
+  /* align-items: center !important; */
 }
 
+input {
+  width: 170%;
+  height: 50px;
+
+  /* display: inline-block !important; */
+}
+label {
+  width: 240px;
+  /* display: inline-block !important; */
+}
+.textfield {
+  width: 170%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 16px;
+  resize: none;
+}
 .addProductItem {
   width: 250px;
   display: flex;
@@ -41,15 +77,22 @@
 }
 
 .addProductButton {
-  margin-top: 10px;
+  margin-bottom: 20px;
   padding: 7px 10px;
-  margin-left: 4px;
+  margin-left: 42px !important;
+  float: right !important;
   border: none;
-  border-radius: 10px;
-  background-color: darkblue;
+  border-radius: 15px !important;
+  background-color: #8a15fc !important;
   color: white;
   font-weight: 600;
   width: 200px;
-  font-size: 1.3rem;
+  height: 80px;
+  font-size: 1.4rem !important;
   cursor: pointer;
+}
+.addProductButton:hover {
+  background-color: #7110d1 !important;
+  color: #ebdbfd;
+  transition: 0.5s;
 }

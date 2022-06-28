@@ -35,11 +35,11 @@
   border-radius: 10px;
 }
 
-.sidebarListItem:active,
+
 .sidebarListItem:hover {
   background-color: #7110d1;
   transition: 0.5s;
-  /* width: auto; */
+  
 }
 
 

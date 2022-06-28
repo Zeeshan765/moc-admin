@@ -151,7 +151,7 @@ const EditComponent = (props) => {
     <>
       <div className='product'>
         <div className='productTitleContainer'>
-        <ArrowBackIcon size = "large" onClick={handleback}/>
+        <ArrowBackIcon className='backbtn' size = "large" onClick={handleback}/>
           <h1 className='productTitle'> Update Component</h1>
           <button className='' onClick={show}>
             show
@@ -159,7 +159,7 @@ const EditComponent = (props) => {
         </div>
 
         <div className='productBottom'>
-          <form className='addProductForm'>
+          <form className='addProductFormEdit'>
 
 
           <div className='addProductItem'>
@@ -237,7 +237,7 @@ const EditComponent = (props) => {
             </div>
 
 
-            <div className='addProductItem'>
+            <div className='addProductItem' style={{ marginLeft: "50px", marginRight: "190px" }}>
               <label>Component Name</label>
               <input
                 type='text'
@@ -248,7 +248,7 @@ const EditComponent = (props) => {
                 }}
               />
             </div>
-            <div className='addProductItem'>
+            <div className='addProductItem'  style={{ marginLeft: "30px", marginRight: "190px" }}>
               <label>Price</label>
               <input
                 type='text'
@@ -260,7 +260,7 @@ const EditComponent = (props) => {
               />
             </div>
 
-            <div className='addProductItem'>
+            <div className='addProductItem'  style={{ marginRight: "190px" }}>
               <label>Info#1</label>
               <input
                 type='text'
@@ -271,7 +271,7 @@ const EditComponent = (props) => {
                 }}
               />
             </div>
-            <div className='addProductItem'>
+            <div className='addProductItem'  style={{ marginLeft: "1px", marginRight: "190px" }}>
               <label>Info#2</label>
               <input
                 type='text'
@@ -295,7 +295,7 @@ const EditComponent = (props) => {
               />
             </div>
 
-            <div className='addProductItem'>
+            <div className='addProductItem' style={{ marginRight: "190px" }}>
               <label>Info#4</label>
               <input
                 type='text'
@@ -306,7 +306,7 @@ const EditComponent = (props) => {
                 }}
               />
             </div>
-            <div className='addProductItem'>
+            <div className='addProductItem'  style={{ marginLeft: "1px", marginRight: "190px" }}>
               <label>Site</label>
               <input
                 type='text'
@@ -318,17 +318,7 @@ const EditComponent = (props) => {
               />
             </div>
 
-            <div className='addProductItem'>
-              <label>Description</label>
-              <input
-                type='text'
-                placeholder='Enter Component Description'
-                value={description}
-                onChange={(e) => {
-                  setDescription(e.target.value);
-                }}
-              />
-            </div>
+            
             {isSocket && (
               <div className='addProductItem'>
                 <label>Socket</label>
@@ -420,7 +410,18 @@ const EditComponent = (props) => {
                 }}
               />
             </div>
-
+            <div className='addProductItem'  style={{ marginRight: "190px" }}>
+              <label>Description</label>
+              <textarea
+              className='textfield'
+                type='text'
+                placeholder='Enter Component Description'
+                value={description}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+              />
+            </div>
            
             <div className='addProductItem'>
               <label>Image</label>
