@@ -47,7 +47,7 @@ const Sidebar = (props) => {
                 </li>
               </Link>
 
-              <Link
+              <Link 
                 to="/allorders"
                 style={{ backgroundColor: getColor("/allorders") }}
                 className="link"

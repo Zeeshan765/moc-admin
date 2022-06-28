@@ -1,22 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import apiService from '../../services/ApiService';
-import { toast } from 'react-toastify';
-import Pagination from '@material-ui/lab/Pagination';
-import { Modal, Box } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import Fab from '@material-ui/core/Fab';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect } from "react";
+import apiService from "../../services/ApiService";
+import { toast } from "react-toastify";
+import Pagination from "@material-ui/lab/Pagination";
+import { Modal, Box } from "@material-ui/core";
+import AddIcon from "@material-ui/icons/Add";
+import Fab from "@material-ui/core/Fab";
+import { makeStyles } from "@material-ui/core/styles";
 
-import './componentList.css';
-import { DeleteOutlineOutlined, EditOutlined } from '@material-ui/icons';
-import axios from 'axios';
+import "./componentList.css";
+import { DeleteOutlineOutlined, EditOutlined } from "@material-ui/icons";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   addBtn: {
-    position: 'absolute',
+    position: "absolute",
     // bottom: theme.spacing(2),
     right: theme.spacing(2),
     margin: theme.spacing(-1),
+    backgroundColor: "#b04edd",
+    "&:hover":{
+      backgroundColor: "#8738ab",
+    }
   },
 }));
 
@@ -27,25 +31,25 @@ const ComponentList = (props) => {
   const page = props.match.params.page ? props.match.params.page : 1;
   const [total, setTotal] = React.useState(0);
   const [perPage, setPerPage] = React.useState(10);
-  const [keyword, setKeyword] = useState('');
+  const [keyword, setKeyword] = useState("");
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [sortorder, setSortorder] = useState('ASC');
+  const [sortorder, setSortorder] = useState("ASC");
 
   //id of the user to be deleted
-  const [id, setId] = useState('');
+  const [id, setId] = useState("");
 
   console.log(id);
   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    bgcolor: "background.paper",
+    border: "2px solid #000",
     boxShadow: 24,
     p: 4,
   };
@@ -58,10 +62,10 @@ const ComponentList = (props) => {
   React.useEffect(getData, [page, perPage]);
 
   const handleadd = () => {
-    window.location.href = '/newcomponent';
+    window.location.href = "/newcomponent";
   };
   function handleView() {
-    console.log('view');
+    console.log("view");
     setOpen(true);
   }
 
@@ -80,47 +84,47 @@ const ComponentList = (props) => {
 
   //Sorting the Table Head
   const sorting = (col) => {
-    if (sortorder === 'ASC') {
+    if (sortorder === "ASC") {
       const sorted = [...components].sort((a, b) => (a[col] > b[col] ? 1 : -1));
       setComponents(sorted);
-      setSortorder('DSC');
+      setSortorder("DSC");
     }
 
-    if (sortorder === 'DSC') {
+    if (sortorder === "DSC") {
       const sorted = [...components].sort((a, b) => (a[col] < b[col] ? 1 : -1));
       setComponents(sorted);
-      setSortorder('ASC');
+      setSortorder("ASC");
     }
   };
 
   return (
     <>
-      <div className='componentList'>
-        <div className='first-component'>
-          {' '}
+      <div className="componentList">
+        <div className="first-component">
+          {" "}
           <Fab
-            color='primary'
-            aria-label='add'
-            size='large'
+            color="primary"
+            aria-label="add"
+            size="large"
             className={classes.addBtn}
             onClick={handleadd}
           >
             <AddIcon />
           </Fab>
-          <p className='usersText'>Components List</p>
+          <p className="usersText">Components List</p>
           <input
-            className='search'
-            placeholder='Search...'
+            className="search"
+            placeholder="Search..."
             onChange={(e) => setKeyword(e.target.value.toLowerCase())}
           />
         </div>
-        <table className='data-table'>
+        <table className="data-table">
           <thead>
             <tr>
               <th>Component Id</th>
-              <th onClick={() => sorting('name')}>Component Name</th>
-              <th onClick={() => sorting('price')}>Price</th>
-              <th onClick={() => sorting('category')}>Category</th>
+              <th onClick={() => sorting("name")}>Component Name</th>
+              <th onClick={() => sorting("price")}>Price</th>
+              <th onClick={() => sorting("category")}>Category</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -129,21 +133,21 @@ const ComponentList = (props) => {
               <tr key={index}>
                 <td>{c._id}</td>
                 <td>{c.name}</td>
-                <td>{c.price}</td>
+                <td>Rs. {c.price}</td>
                 <td>{c.category}</td>
 
                 <td>
                   <EditOutlined
-                    className='ActionIconEdit'
+                    className="ActionIconEdit"
                     onClick={(e) => {
-                      console.log('navigate to update');
-                      props.history.push('/component/' + c._id);
+                      console.log("navigate to update");
+                      props.history.push("/component/" + c._id);
                     }}
                   >
                     Edit
                   </EditOutlined>
                   <DeleteOutlineOutlined
-                    className='ActionIconDelete'
+                    className="ActionIconDelete"
                     onClick={() => {
                       handleView();
                       setId(c._id);
@@ -158,19 +162,19 @@ const ComponentList = (props) => {
         </table>
         <Pagination
           count={Math.ceil(total / perPage)}
-          className='pagination'
-          variant='outlined'
-          shape='circular'
-          color='secondary'
-          size='large'
+          className="pagination"
+          variant="outlined"
+          shape="circular"
+          color="secondary"
+          size="large"
           onChange={(e, value) => {
             console.log(value);
-            props.history.push('/components/' + value);
+            props.history.push("/components/" + value);
           }}
-        />{' '}
-        <p className='paginationTextUserList'>
-          Showing <b>{(page - 1) * perPage}</b> -{' '}
-          <b>{(page - 1) * perPage + components.length}</b> of <b>{total}</b>{' '}
+        />{" "}
+        <p className="paginationTextUserList">
+          Showing <b>{(page - 1) * perPage}</b> -{" "}
+          <b>{(page - 1) * perPage + components.length}</b> of <b>{total}</b>{" "}
           results
         </p>
       </div>
@@ -178,24 +182,24 @@ const ComponentList = (props) => {
         // className="modal"
         open={open}
         onClose={handleClose}
-        aria-labelledby='modal-modal-title'
-        aria-describedby='modal-modal-description'
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
           <h2>Are you Sure you want to delete ?</h2>
-          <div className='btn-group'>
-            <button className='btn-style' onClick={handleClose}>
+          <div className="btn-group">
+            <button className="btn-style" onClick={handleClose}>
               No
             </button>
             <button
-              className='btn-style'
+              className="btn-style"
               onClick={(e) => {
                 apiService
-                  .deleteUser('/api/components/' + id)
+                  .deleteUser("/api/components/" + id)
                   .then((data) => {
-                    toast.success('Component Deleted Successfully', {
-                      theme: 'colored',
-                      position: 'top-left',
+                    toast.success("Component Deleted Successfully", {
+                      theme: "colored",
+                      position: "top-left",
                     });
                     console.log(id);
 

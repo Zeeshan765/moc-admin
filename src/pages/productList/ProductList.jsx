@@ -12,10 +12,14 @@ import { EditOutlined, DeleteOutlineOutlined } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   addBtn: {
-    position: 'absolute',
+    position: "absolute",
     // bottom: theme.spacing(2),
     right: theme.spacing(2),
     margin: theme.spacing(-1),
+    backgroundColor: "#b04edd",
+    "&:hover":{
+      backgroundColor: "#8738ab",
+    }
   },
 }));
 

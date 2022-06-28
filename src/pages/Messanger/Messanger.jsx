@@ -100,7 +100,7 @@ console.log(conversation)
                   key={index}
                   onClick={() => setChat(c._id)}
                 >
-                  <div className="chatTop" onClick={() => setUser(c?.user?._id)}>
+                  <div className="chatTop" onClick={() => setUser(c?.user?._id)} >
                     <p className="sender">{c?.user?.name}</p>
 
                     {/* <p className="messageText">{chat.message}</p> */}

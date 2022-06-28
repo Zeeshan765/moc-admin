@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./product.css";
 import apiService from "../../services/ApiService";
 import { toast } from "react-toastify";
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 //import Chart from '../../components/chart/Chart';
 
 const Product = (props) => {
@@ -17,7 +17,7 @@ const Product = (props) => {
   const [info2, setinfo2] = useState("");
   const [info3, setinfo3] = useState("");
   const [info4, setinfo4] = useState("");
-  const[image1,setImage1]=useState("");
+  const [image1, setImage1] = useState("");
   // console.log({
   //   name,
   //   price,
@@ -68,9 +68,9 @@ const Product = (props) => {
     apiService
       .put("/api/products/" + id, formData)
       .then((data) => {
-        toast.success("Product update successfully",{
+        toast.success("Product update successfully", {
           position: toast.POSITION.TOP_LEFT,
-          theme:"colored",
+          theme: "colored",
         });
         console.log(data);
         props.history.push("/products");
@@ -80,18 +80,10 @@ const Product = (props) => {
       });
   };
 
-
-//Handle Back
-const handleback = ()=>{
-  props.history.push("/products")
-}
-
-
-
-
-
-
-
+  //Handle Back
+  const handleback = () => {
+    props.history.push("/products");
+  };
 
   // let formData = new FormData();
   // formData.append('name', name);
@@ -108,14 +100,17 @@ const handleback = ()=>{
     <>
       <div className="product">
         <div className="productTitleContainer">
-           <ArrowBackIcon size = "large" onClick={handleback}/>
-            
-           
-          <h1 className="productTitle"> Update Product</h1>
+          <ArrowBackIcon
+            className="backbtn"
+            size="large"
+            onClick={handleback}
+          />
+
+          <h1 className="editCompTitle"> Update Product</h1>
         </div>
 
         <div className="productBottom">
-          <form className="addProductForm">
+          <form className="updateProductForm">
             <div className="addProductItem">
               <label>Product Name</label>
               <input
@@ -126,7 +121,10 @@ const handleback = ()=>{
                 }}
               />
             </div>
-            <div className="addProductItem">
+            <div
+              className="addProductItem"
+              style={{ marginLeft: "190px", marginRight: "190px" }}
+            >
               <label>Price</label>
               <input
                 type="text"
@@ -148,7 +146,10 @@ const handleback = ()=>{
                 }}
               />
             </div>
-            <div className="addProductItem">
+            <div
+              className="addProductItem"
+              style={{ marginLeft: "190px", marginRight: "190px" }}
+            >
               <label>Info#2</label>
               <input
                 type="text"
@@ -170,7 +171,10 @@ const handleback = ()=>{
                 }}
               />
             </div>
-            <div className="addProductItem">
+            <div
+              className="addProductItem"
+              style={{ marginLeft: "190px", marginRight: "190px" }}
+            >
               <label>Info#4</label>
               <input
                 type="text"
@@ -181,17 +185,7 @@ const handleback = ()=>{
                 }}
               />
             </div>
-            <div className="addProductItem">
-              <label>Description</label>
-              <input
-                type="text"
-                placeholder="Enter Product Description"
-                value={description}
-                onChange={(e) => {
-                  setDescription(e.target.value);
-                }}
-              />
-            </div>
+
             <div className="addProductItem">
               <label>Company</label>
               <input
@@ -200,6 +194,21 @@ const handleback = ()=>{
                 value={company}
                 onChange={(e) => {
                   setCompany(e.target.value);
+                }}
+              />
+            </div>
+            <div
+              className="addProductItem"
+              style={{ marginLeft: "190px", marginRight: "190px" }}
+            >
+              <label>Description</label>
+              <textarea
+                className="textfield"
+                type="text"
+                placeholder="Enter Product Description"
+                value={description}
+                onChange={(e) => {
+                  setDescription(e.target.value);
                 }}
               />
             </div>
@@ -241,8 +250,7 @@ const handleback = ()=>{
 
             <div className="addProductItem">
               <label>Image</label>
-              <img src=  {image1} alt='' />
-            
+              <img src={image1} alt="" />
             </div>
             <button
               className="addProductButton"

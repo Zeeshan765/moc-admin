@@ -1,52 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import apiService from '../../services/ApiService';
+import React, { useState, useEffect } from "react";
+import apiService from "../../services/ApiService";
 
-import BasicModal from './BasicModal';
-import { toast } from 'react-toastify';
-import { Modal, Box } from '@material-ui/core';
-import Pagination from '@material-ui/lab/Pagination';
+import BasicModal from "./BasicModal";
+import { toast } from "react-toastify";
+import { Modal, Box } from "@material-ui/core";
+import Pagination from "@material-ui/lab/Pagination";
 
-import './order.css';
-import { EditOutlined } from '@material-ui/icons';
-import green from '@material-ui/core/colors/green';
-import OrderFeatureboxes from '../../components/orderfeatureboxes/OrderFeatureboxes';
+import "./order.css";
+import { EditOutlined } from "@material-ui/icons";
+import green from "@material-ui/core/colors/green";
+import OrderFeatureboxes from "../../components/orderfeatureboxes/OrderFeatureboxes";
 const Order = (props) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   function handleEdit() {
-    console.log('i am clicked');
+    console.log("i am clicked");
   }
 
   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    bgcolor: "background.paper",
+    border: "2px solid #000",
     boxShadow: 24,
     p: 4,
   };
 
-  const [id, setid] = useState('');
+  const [id, setid] = useState("");
   const [orders, setOrders] = useState([]);
   const page = props.match.params.page ? props.match.params.page : 1;
   const [total, setTotal] = React.useState(0);
   const [perPage, setPerPage] = React.useState(10);
-  const [sortorder, setSortorder] = useState('ASC');
+  const [sortorder, setSortorder] = useState("ASC");
+  const [statustype, setStatustype] = useState("");
 
   //const [name, setName] = useState("");
-  const [city, setCity] = useState('nothing');
-  const [phoneNo, setphoneNo] = useState('nothing');
-  const [paidAt, setpaidAt] = useState('nothing');
-  const [createdAt, setcreateAt] = useState('nothing');
-  const [delieveredAt, setDelieveredAt] = useState('nothing');
-  const [status, setStatus] = useState('');
-  const [type, settype] = useState('nothing');
-  const [address, setaddress] = useState('nothing');
-  const [amount, setamount] = useState('nothing');
+  const [city, setCity] = useState("nothing");
+  const [phoneNo, setphoneNo] = useState("nothing");
+  const [paidAt, setpaidAt] = useState("nothing");
+  const [createdAt, setcreateAt] = useState("nothing");
+  const [delieveredAt, setDelieveredAt] = useState("nothing");
+  const [status, setStatus] = useState("");
+  const [type, settype] = useState("nothing");
+  const [address, setaddress] = useState("nothing");
+  const [amount, setamount] = useState("nothing");
   // console.log(orders.address);
 
   //console.log(orders[0].address)
@@ -75,7 +76,7 @@ const Order = (props) => {
 
   function handleView(p) {
     console.log(p._id);
-    apiService.get('/api/orders/find/' + p._id).then((res) => {
+    apiService.get("/api/orders/find/" + p._id).then((res) => {
       console.log(res.data);
       //console.log(res.data.user.name);
       //setName(res.data.user.name);
@@ -96,11 +97,11 @@ const Order = (props) => {
   const orderupdate = (e) => {
     e.preventDefault();
     apiService
-      .put('/api/orders/status/' + id, { status })
+      .put("/api/orders/status/" + id, { status })
       .then((data) => {
-        toast.success('Order update successfully', {
+        toast.success("Order update successfully", {
           position: toast.POSITION.TOP_LEFT,
-          theme: 'colored',
+          theme: "colored",
         });
         console.log(data);
         window.location.reload();
@@ -114,31 +115,42 @@ const Order = (props) => {
 
   //Sorting the Table Head
   const sorting = (col) => {
-    if (sortorder === 'ASC') {
+    if (sortorder === "ASC") {
       const sorted = [...orders].sort((a, b) => (a[col] > b[col] ? 1 : -1));
       setOrders(sorted);
-      setSortorder('DSC');
+      setSortorder("DSC");
     }
 
-    if (sortorder === 'DSC') {
+    if (sortorder === "DSC") {
       const sorted = [...orders].sort((a, b) => (a[col] < b[col] ? 1 : -1));
       setOrders(sorted);
-      setSortorder('ASC');
+      setSortorder("ASC");
+    }
+  };
+
+  // status type color
+  const statusColor = (status) => {
+    if (status === "Pending") {
+      return "#cf9f0e";
+    } else if (status === "Delivered") {
+      return "#28a745";
+    } else if (status === "cancelled") {
+      return "#dc3545";
     }
   };
 
   return (
     <>
-      <div className='productList'>
+      <div className="productList">
         <OrderFeatureboxes />
-        <table className='data-table'>
+        <table className="data-table">
           <thead>
             <tr>
               <th>User Id</th>
               <th>Order Id</th>
-              <th onClick={() => sorting('amount')}>Total Amount</th>
-              <th onClick={() => sorting('status')}>Status</th>
-              <th onClick={() => sorting('type')}>Order Type</th>
+              <th onClick={() => sorting("amount")}>Total Amount</th>
+              <th onClick={() => sorting("status")}>Status</th>
+              <th onClick={() => sorting("type")}>Order Type</th>
               <th>Order Date</th>
               <th>Action</th>
             </tr>
@@ -148,8 +160,8 @@ const Order = (props) => {
               <tr key={index}>
                 <td>{p.user}</td>
                 <td>{p._id}</td>
-                <td>{p.amount}</td>
-                <td>{p.status}</td>
+                <td>Rs. {p.amount}</td>
+                <td style={{ color: statusColor(p.status) }}>{p.status}</td>
                 <td>{p.type}</td>
 
                 <td>{p.createdAt}</td>
@@ -157,7 +169,7 @@ const Order = (props) => {
                   {/* <button className="del-btn">Delete</button> */}
                   {/* <button className="edit-btn" onClick={handleOpen}></button> */}
                   <EditOutlined
-                    className='ActionIcon'
+                    className="ActionIcon"
                     onClick={() => handleView(p)}
                   >
                     View
@@ -169,19 +181,19 @@ const Order = (props) => {
         </table>
         <Pagination
           count={Math.ceil(total / perPage)}
-          className='pagination'
-          variant='outlined'
-          shape='circular'
-          color='secondary'
-          size='large'
+          className="pagination"
+          variant="outlined"
+          shape="circular"
+          color="secondary"
+          size="large"
           onChange={(e, value) => {
             console.log(value);
-            props.history.push('/allorders/' + value);
+            props.history.push("/allorders/" + value);
           }}
-        />{' '}
-        <p className='paginationText'>
-          Showing <b>{(page - 1) * perPage}</b> -{' '}
-          <b>{(page - 1) * perPage + orders.length}</b> of <b>{total}</b>{' '}
+        />{" "}
+        <p className="paginationText">
+          Showing <b>{(page - 1) * perPage}</b> -{" "}
+          <b>{(page - 1) * perPage + orders.length}</b> of <b>{total}</b>{" "}
           results
         </p>
         {/* Total: {total} Showing {(page - 1) * perPage} to{' '}
@@ -189,14 +201,16 @@ const Order = (props) => {
       </div>
 
       <Modal
-        className='modal'
+        className="modal"
         open={open}
         onClose={handleClose}
-        aria-labelledby='modal-modal-title'
-        aria-describedby='modal-modal-description'
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className='modal'>
-          <button className='close-btn' onClick={handleClose}>CLOSE</button>
+        <Box sx={style} className="modal">
+          <button className="close-btn" onClick={handleClose}>
+            CLOSE
+          </button>
           <h1>Order Details</h1>
           <h3>Order Id:</h3>
           <h4>{id}</h4>
@@ -222,17 +236,17 @@ const Order = (props) => {
           <h4>{status}</h4>
           <h2>Update Status</h2>
           <select
-            className='statusDrop'
-            id=''
+            className="statusDrop"
+            id=""
             onChange={(e) => {
               setStatus(e.target.value);
             }}
           >
-            <option value='Pending'> Pending</option>
-            <option value='Processing'>Processing</option>
-            <option value='Delivered'>Delivered</option>
+            <option value="Pending"> Pending</option>
+            <option value="Processing">Processing</option>
+            <option value="Delivered">Delivered</option>
           </select>
-          <button className='update-btn' onClick={orderupdate}>
+          <button className="update-btn" onClick={orderupdate}>
             Update
           </button>
         </Box>
