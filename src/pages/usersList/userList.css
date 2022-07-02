@@ -1,20 +1,31 @@
 .userList {
   flex: 4;
 }
-.usersText{
-font-size: 35px;
-color: #b04edd;
-font-weight: bold;
-margin-left: 35px;
-margin-top: -10px;
+.usersText {
+  font-size: 35px;
+  color: #b04edd;
+  font-weight: bold;
+  margin-left: 35px;
+  margin-top: -10px;
 }
-.btn-group{
+.sortIcon {
+  font-size: 30px !important;
+  color: #f1f0f1;
+  margin-right: 30px;
+  float: right;
+}
+th:hover {
+  background-color: #31333a !important;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.btn-group {
   margin-left: 210px;
-  margin-top: 18px; 
+  margin-top: 18px;
   display: flex;
   flex-direction: row;
 }
-.btn-style{
+.btn-style {
   background-color: #dd4e4e;
   color: white;
   border-radius: 5px;
@@ -22,8 +33,7 @@ margin-top: -10px;
   width: 100px;
   padding: 10px;
   margin-left: 35px;
-  margin-top: 19px; 
-
+  margin-top: 19px;
 }
 .userListUser {
   display: flex;
@@ -37,8 +47,7 @@ margin-top: -10px;
   object-fit: cover;
   margin-right: 10px;
 }
-.ActionIconChat
-{
+.ActionIconChat {
   color: blue;
   cursor: pointer;
 }
@@ -57,11 +66,13 @@ margin-top: -10px;
   cursor: pointer;
 }
 
-.search{
+.search1 {
   padding: 10px;
-  margin-left: 26rem;
+  float: right;
+  margin-right: 40px;
+  margin-bottom: 40px;
   font-size: 20px;
-  width:25rem;
+  width: 25rem;
   /* color: #03091f; */
 
   background-color: #03091f;
@@ -112,7 +123,6 @@ margin-top: -10px;
   color: white;
 }
 .edit-btn {
- 
   font: xx-large;
   color: white;
   padding: 8px;
@@ -127,14 +137,14 @@ margin-top: -10px;
   width: 30%;
   font-size: 1.3rem;
 }
-.paginationUserList{
-  justify-content: center !important; 
+.paginationUserList {
+  justify-content: center !important;
   background-color: #fff;
   background: none;
   margin-bottom: 20px;
   margin-left: 620px;
 }
-.paginationTextUserList{
+.paginationTextUserList {
   font-size: 18px;
   width: 100%;
   text-align: center;
@@ -235,7 +245,6 @@ table td {
   color: red;
   cursor: pointer;
 }
-.btn-style  :hover{
+.btn-style :hover {
   cursor: pointer;
-  
-  }
+}

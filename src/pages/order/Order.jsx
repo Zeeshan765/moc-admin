@@ -5,7 +5,7 @@ import BasicModal from "./BasicModal";
 import { toast } from "react-toastify";
 import { Modal, Box } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
-
+import ImportExportIcon from '@material-ui/icons/ImportExport';
 import "./order.css";
 import { EditOutlined } from "@material-ui/icons";
 import green from "@material-ui/core/colors/green";
@@ -148,9 +148,9 @@ const Order = (props) => {
             <tr>
               <th>User Id</th>
               <th>Order Id</th>
-              <th onClick={() => sorting("amount")}>Total Amount</th>
-              <th onClick={() => sorting("status")}>Status</th>
-              <th onClick={() => sorting("type")}>Order Type</th>
+              <th onClick={() => sorting("amount")}>Total Amount <ImportExportIcon className='sortIcon' /></th>
+              <th onClick={() => sorting("status")}>Status <ImportExportIcon className='sortIcon' /></th>
+              <th onClick={() => sorting("type")}>Order Type <ImportExportIcon className='sortIcon' /></th>
               <th>Order Date</th>
               <th>Action</th>
             </tr>

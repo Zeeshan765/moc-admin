@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import apiService from "../../services/ApiService";
 import { toast } from "react-toastify";
 import "./newProduct.css";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const NewProduct = (props) => {
   const [name, setName] = useState("");
@@ -26,6 +27,10 @@ const NewProduct = (props) => {
     info3,
     info4,
   });
+
+  const handleback = () => {
+    props.history.push("/products");
+  };
 
   //Handle Create Function
   const handlecreate = (e) => {
@@ -62,6 +67,11 @@ const NewProduct = (props) => {
 
   return (
     <div className="newProduct">
+      <ArrowBackIcon
+            className="backbtnNewProd"
+            size="large"
+            onClick={handleback}
+          />
       <h1 className="addProductTitle">Create Product</h1>
       <form className="addProductForm">
         <div className="addProductItem" >

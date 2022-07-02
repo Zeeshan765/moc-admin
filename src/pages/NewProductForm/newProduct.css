@@ -8,6 +8,18 @@
 .addProductTitle {
   font-size: 35px;
   color: #b04edd;
+margin-top: -40px;
+}
+.backbtnNewProd{
+  font-size: 60px !important;
+  color: #b04edd !important;
+  cursor: pointer;
+  float: left;
+  margin-right: 130px !important;
+}
+.backbtnNewProd:hover{
+  color: #7110d1 !important;
+  transition: 0.5s;
 }
 
 .addProductForm {

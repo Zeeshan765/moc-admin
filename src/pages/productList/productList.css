@@ -46,12 +46,17 @@ cursor: pointer;
   display: flex;
   /* justify-content: space-between ; */
 }
-.search1{
+.searchProds{
   padding: 10px;
-  margin-left: 33rem;
+
+  margin-left: 850px;
+  margin-bottom: 40px;
   font-size: 20px;
-  width:25rem;
+  width: 25rem;
   /* color: #03091f; */
+
+  background-color: #03091f;
+  color: white;
 
   background-color: #03091f;
   color: white;

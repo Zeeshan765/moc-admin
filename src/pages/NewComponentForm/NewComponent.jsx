@@ -3,6 +3,7 @@ import apiService from "../../services/ApiService";
 import { toast } from "react-toastify";
 //import Checkbox from '../../components/Checkbox/Checkbox';
 import "./newComponent.css";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const NewComponent = (props) => {
   const [name, setName] = useState("");
@@ -54,6 +55,11 @@ const NewComponent = (props) => {
       alert(temp + "  was added");
     }
   }
+
+  const handleback = () => {
+    props.history.push("/components");
+  };
+
   //Handle Create Function
   const handlecreate = (e) => {
     e.preventDefault();
@@ -107,7 +113,8 @@ const NewComponent = (props) => {
 
   return (
     <div className="NewComponent">
-      <h1 className="addProductTitle">Create Component</h1>
+      <ArrowBackIcon className="backbtnNewProd" size="large" onClick={handleback} />
+      <h1 className="addCompTitle">Create Component</h1>
 
       <form className="addComponentForm">
         <div className="addProductItem">

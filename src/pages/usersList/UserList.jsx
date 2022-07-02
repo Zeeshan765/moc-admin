@@ -4,8 +4,9 @@ import { toast } from 'react-toastify';
 import Pagination from '@material-ui/lab/Pagination';
 import { Modal, Box } from '@material-ui/core';
 import { DeleteOutlineOutlined } from '@material-ui/icons';
-
+import ImportExportIcon from '@material-ui/icons/ImportExport';
 import axios from 'axios';
+
 import { useState } from 'react';
 import apiService from '../../services/ApiService';
 import {
@@ -98,8 +99,8 @@ const UserList = (props) => {
           <thead>
             <tr>
               <th>User Id</th>
-              <th onClick={() => sorting('name')}>User Name </th>
-              <th onClick={() => sorting('email')}>Email</th>
+              <th  onClick={() => sorting('name')}>User Name <ImportExportIcon className='sortIcon' /> </th>
+              <th onClick={() => sorting('email')}>Email <ImportExportIcon className='sortIcon' /></th>
               <th>Phone No </th>
 
               <th>Actions</th>

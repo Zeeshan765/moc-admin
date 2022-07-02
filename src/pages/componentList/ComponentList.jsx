@@ -6,7 +6,7 @@ import { Modal, Box } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 import { makeStyles } from "@material-ui/core/styles";
-
+import ImportExportIcon from '@material-ui/icons/ImportExport';
 import "./componentList.css";
 import { DeleteOutlineOutlined, EditOutlined } from "@material-ui/icons";
 import axios from "axios";
@@ -15,8 +15,10 @@ const useStyles = makeStyles((theme) => ({
   addBtn: {
     position: "absolute",
     // bottom: theme.spacing(2),
-    right: theme.spacing(2),
+    right: theme.spacing(5),
     margin: theme.spacing(-1),
+    top: theme.spacing(19),
+    // bottom: theme.spacing(-16),
     backgroundColor: "#b04edd",
     "&:hover":{
       backgroundColor: "#8738ab",
@@ -113,7 +115,7 @@ const ComponentList = (props) => {
           </Fab>
           <p className="usersText">Components List</p>
           <input
-            className="search"
+            className="searchComps"
             placeholder="Search..."
             onChange={(e) => setKeyword(e.target.value.toLowerCase())}
           />
@@ -122,9 +124,9 @@ const ComponentList = (props) => {
           <thead>
             <tr>
               <th>Component Id</th>
-              <th onClick={() => sorting("name")}>Component Name</th>
-              <th onClick={() => sorting("price")}>Price</th>
-              <th onClick={() => sorting("category")}>Category</th>
+              <th onClick={() => sorting("name")}>Component Name <ImportExportIcon className='sortIcon' /></th>
+              <th onClick={() => sorting("price")}>Price <ImportExportIcon className='sortIcon' /></th>
+              <th onClick={() => sorting("category")}>Category <ImportExportIcon className='sortIcon' /></th>
               <th>Action</th>
             </tr>
           </thead>

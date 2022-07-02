@@ -5,9 +5,10 @@
   float: left;
   margin-right: 150px;
 }
-.addProductTitle {
+.addCompTitle {
   font-size: 35px;
   color: #b04edd;
+  margin-top: -40px;
 }
 .addComponentForm {
   margin-top: 29px;

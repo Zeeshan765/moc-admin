@@ -9,13 +9,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import './productList.css';
 import { EditOutlined, DeleteOutlineOutlined } from '@material-ui/icons';
+import ImportExportIcon from '@material-ui/icons/ImportExport';
 
 const useStyles = makeStyles((theme) => ({
   addBtn: {
     position: "absolute",
     // bottom: theme.spacing(2),
-    right: theme.spacing(2),
+    right: theme.spacing(5),
     margin: theme.spacing(-1),
+    top: theme.spacing(22),
+    // bottom: theme.spacing(-16),
     backgroundColor: "#b04edd",
     "&:hover":{
       backgroundColor: "#8738ab",
@@ -119,7 +122,7 @@ const ProductList = (props) => {
           <p className='usersText'>Product List</p>
 
           <input
-            className='search'
+            className='searchProds'
             placeholder='Search...'
             onChange={(e) => setKeyword(e.target.value.toLowerCase())}
           />
@@ -128,10 +131,10 @@ const ProductList = (props) => {
           <thead>
             <tr>
               <th>Product Id</th>
-              <th onClick={() => sorting('name')}>Product Name</th>
-              <th onClick={() => sorting('price')}>Price</th>
-              <th onClick={() => sorting('company')}>Brand</th>
-              <th onClick={() => sorting('category')}>Category</th>
+              <th onClick={() => sorting('name')}>Product Name <ImportExportIcon className='sortIcon' /> </th>
+              <th onClick={() => sorting('price')}>Price <ImportExportIcon className='sortIcon' /></th>
+              <th onClick={() => sorting('company')}>Brand <ImportExportIcon className='sortIcon' /> </th>
+              <th onClick={() => sorting('category')}>Category <ImportExportIcon className='sortIcon' /></th>
               
               <th>Actions</th>
             </tr>

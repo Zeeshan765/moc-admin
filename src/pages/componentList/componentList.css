@@ -35,11 +35,13 @@
   display: flex;
   /* justify-content: space-between ; */
 }
-.search{
+.searchComps{
   padding: 10px;
-  margin-left: 23rem;
+
+  margin-left: 790px;
+  margin-bottom: 30px;
   font-size: 20px;
-  width:25rem;
+  width: 25rem;
   /* color: #03091f; */
 
   background-color: #03091f;
