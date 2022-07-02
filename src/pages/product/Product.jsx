@@ -18,18 +18,13 @@ const Product = (props) => {
   const [info3, setinfo3] = useState("");
   const [info4, setinfo4] = useState("");
   const [image1, setImage1] = useState("");
-  // console.log({
-  //   name,
-  //   price,
-  //   description,
-  //   company,
-  //   category,
-  //   image,
-  //   info1,
-  //   info2,
-  //   info3,
-  //   info4,
-  // });
+  const [nameerror, setNameerror] = useState(false);
+  const [deserror, setDeserror] = useState(false);
+  const [info1error, setinfo1error] = useState(false);
+  const [info2error, setinfo2error] = useState(false);
+  const [info3error, setinfo3error] = useState(false);
+  const [info4error, setinfo4error] = useState(false);
+  const [comperror, setComperror] = useState(false);
 
   //get that exsisting product
 
@@ -54,6 +49,27 @@ const Product = (props) => {
   //Handle Create Function
   const handlecreate = (e) => {
     e.preventDefault();
+
+
+    if (
+      name === '' ||
+      price === '' ||
+      description === '' ||
+      company === '' ||
+      category === '' ||
+      // image === '' ||
+      info1 === '' ||
+      info2 === '' ||
+      info3 === '' ||
+      info4 === ''
+    ) {
+      // setError(true);
+      toast.error('Please fill all required fields', {
+        position: toast.POSITION.TOP_LEFT,
+        theme: 'colored',
+      });
+    } else {
+    
     let formData = new FormData();
     formData.append("name", name);
     formData.append("price", price);
@@ -78,6 +94,7 @@ const Product = (props) => {
       .catch((error) => {
         console.log(error.message);
       });
+    }
   };
 
   //Handle Back
@@ -85,17 +102,79 @@ const Product = (props) => {
     props.history.push("/products");
   };
 
-  // let formData = new FormData();
-  // formData.append('name', name);
-  // formData.append('price', price);
-  // formData.append('description', description);
-  // formData.append('company', company);
-  // formData.append('category', category);
-  // formData.append('image', image);
-  // formData.append('info1', info1);
-  // formData.append('info2', info2);
-  // formData.append('info3', info3);
-  // formData.append('info4', info4);
+  //Us
+  const nameHandler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setNameerror(true);
+    } else {
+      setNameerror(false);
+    }
+    setName(item);
+  };
+
+  //Description Handler
+  const descriptionHandler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 200) {
+      setDeserror(true);
+    } else {
+      setDeserror(false);
+    }
+    setDescription(item);
+  };
+  //Company Handler
+  const companyHandler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setComperror(true);
+    } else {
+      setComperror(false);
+    }
+    setCompany(item);
+  };
+  //Info1 Handler
+  const info1Handler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setinfo1error(true);
+    } else {
+      setinfo1error(false);
+    }
+    setinfo1(item);
+  };
+  //Info2 Handler
+  const info2Handler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setinfo2error(true);
+    } else {
+      setinfo2error(false);
+    }
+    setinfo2(item);
+  };
+  //Info3 Handler
+  const info3Handler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setinfo3error(true);
+    } else {
+      setinfo3error(false);
+    }
+    setinfo3(item);
+  };
+  //Info4 Handler
+  const info4Handler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setinfo4error(true);
+    } else {
+      setinfo4error(false);
+    }
+    setinfo4(item);
+  };
+
+ 
   return (
     <>
       <div className="product">
@@ -116,10 +195,20 @@ const Product = (props) => {
               <input
                 type="text"
                 value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-              />
+                onChange={nameHandler}
+            // onChange={(e) => {
+            //   setName(e.target.value);
+            // }}
+          />
+          {nameerror ? (
+            <span className='error-handler'>
+              Product Name must be greater than 3 and less than 20 characters
+            </span>
+          ) : (
+            ''
+          )}
+              {/* <span>Invalid</span> */}
+
             </div>
             <div
               className="addProductItem"
@@ -141,10 +230,18 @@ const Product = (props) => {
                 type="text"
                 placeholder="Enter Info#1"
                 value={info1}
-                onChange={(e) => {
-                  setinfo1(e.target.value);
-                }}
-              />
+                onChange={nameHandler}
+            // onChange={(e) => {
+            //   setName(e.target.value);
+            // }}
+          />
+          {info1error ? (
+            <span className='error-handler'>
+              Info1 must be greater than 3 and less than 20 characters
+            </span>
+          ) : (
+            ''
+          )}
             </div>
             <div
               className="addProductItem"
@@ -155,10 +252,18 @@ const Product = (props) => {
                 type="text"
                 placeholder="Enter Info#2"
                 value={info2}
-                onChange={(e) => {
-                  setinfo2(e.target.value);
-                }}
+                onChange={info2Handler}
+                // onChange={(e) => {
+                //   setName(e.target.value);
+                // }}
               />
+              {info2error ? (
+                <span className='error-handler'>
+                  Info2 must be greater than 3 and less than 20 characters
+                </span>
+              ) : (
+                ''
+              )}
             </div>
             <div className="addProductItem">
               <label>Info#3</label>
@@ -166,10 +271,18 @@ const Product = (props) => {
                 type="text"
                 placeholder="Enter Info#3"
                 value={info3}
-                onChange={(e) => {
-                  setinfo3(e.target.value);
-                }}
-              />
+                onChange={info3Handler}
+            // onChange={(e) => {
+            //   setName(e.target.value);
+            // }}
+          />
+          {info3error ? (
+            <span className='error-handler'>
+              Info3 must be greater than 3 and less than 20 characters
+            </span>
+          ) : (
+            ''
+          )}
             </div>
             <div
               className="addProductItem"
@@ -180,10 +293,18 @@ const Product = (props) => {
                 type="text"
                 placeholder="Enter Info#4"
                 value={info4}
-                onChange={(e) => {
-                  setinfo4(e.target.value);
-                }}
+                onChange={info4Handler}
+                // onChange={(e) => {
+                //   setName(e.target.value);
+                // }}
               />
+              {info4error ? (
+                <span className='error-handler'>
+                  Info4 must be greater than 3 and less than 20 characters
+                </span>
+              ) : (
+                ''
+              )}
             </div>
 
             <div className="addProductItem">
@@ -192,10 +313,18 @@ const Product = (props) => {
                 type="text"
                 placeholder="Enter Company Name"
                 value={company}
-                onChange={(e) => {
-                  setCompany(e.target.value);
-                }}
+                onChange={companyHandler}
+                // onChange={(e) => {
+                //   setName(e.target.value);
+                // }}
               />
+              {comperror ? (
+                <span className='error-handler'>
+                  Company Name must be greater than 3 and less than 20 characters
+                </span>
+              ) : (
+                ''
+              )}
             </div>
             <div
               className="addProductItem"
@@ -207,10 +336,18 @@ const Product = (props) => {
                 type="text"
                 placeholder="Enter Product Description"
                 value={description}
-                onChange={(e) => {
-                  setDescription(e.target.value);
-                }}
-              />
+                onChange={descriptionHandler}
+            // onChange={(e) => {
+            //   setName(e.target.value);
+            // }}
+          />
+          {deserror ? (
+            <span className='error-handler'>
+              Description must be greater than 3 and less than 200 characters
+            </span>
+          ) : (
+            ''
+          )}
             </div>
             <div className="addProductItem">
               <label>Category</label>

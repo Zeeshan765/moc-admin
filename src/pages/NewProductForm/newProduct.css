@@ -21,7 +21,10 @@ margin-top: -40px;
   color: #7110d1 !important;
   transition: 0.5s;
 }
-
+.error-handler{
+  color: red;
+  font-style: italic;
+}
 .addProductForm {
   margin-top: 29px;
   margin-left: 2rem;
