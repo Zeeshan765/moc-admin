@@ -48,6 +48,7 @@ const Order = (props) => {
   const [type, settype] = useState("nothing");
   const [address, setaddress] = useState("nothing");
   const [amount, setamount] = useState("nothing");
+  const [keyword, setKeyword] = useState('');
   // console.log(orders.address);
 
   //console.log(orders[0].address)
@@ -143,6 +144,11 @@ const Order = (props) => {
     <>
       <div className="productList">
         <OrderFeatureboxes />
+        <input
+          className='search1'
+          placeholder='Search...'
+          onChange={(e) => setKeyword(e.target.value.toLowerCase())}
+        />
         <table className="data-table">
           <thead>
             <tr>
