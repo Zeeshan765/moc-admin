@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 //import Checkbox from '../../components/Checkbox/Checkbox';
 import "./newComponent.css";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-
 const NewComponent = (props) => {
   const [name, setName] = useState("");
   const [coolingsockets, setCoolingsockets] = useState([]);
@@ -30,6 +29,17 @@ const NewComponent = (props) => {
   const [isSupportedSocket, setissupportedSocket] = useState(false);
   const [isRGB, setisRGB] = useState(false);
   const [temp, setTemp] = useState([]);
+  const [nameerror, setNameerror] = useState(false);
+  const [deserror, setDeserror] = useState(false);
+  const [info1error, setinfo1error] = useState(false);
+  const [info2error, setinfo2error] = useState(false);
+  const [info3error, setinfo3error] = useState(false);
+  const [info4error, setinfo4error] = useState(false);
+  const [comperror, setComperror] = useState(false);
+
+
+
+
 
   console.log({
     name,
@@ -63,6 +73,24 @@ const NewComponent = (props) => {
   //Handle Create Function
   const handlecreate = (e) => {
     e.preventDefault();
+    if (
+      name === '' ||
+      price === '' ||
+      description === '' ||
+      company === '' ||
+      category === '' ||
+      image === '' ||
+      info1 === '' ||
+      info2 === '' ||
+      info3 === '' ||
+      info4 === ''
+    ) {
+      // setError(true);
+      toast.error('Please fill all required fields', {
+        position: toast.POSITION.TOP_LEFT,
+        theme: 'colored',
+      });
+    } else {
     let formData = new FormData();
     formData.append("name", name);
     formData.append("price", price);
@@ -97,7 +125,9 @@ const NewComponent = (props) => {
           position: toast.POSITION.TOP_LEFT,
           theme: "colored",
         });
+      
       });
+    }
   };
   // const validation = (e) => {
   //   e.preventDefault();
@@ -110,6 +140,79 @@ const NewComponent = (props) => {
 
   //   }
   // };
+
+  const nameHandler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setNameerror(true);
+    } else {
+      setNameerror(false);
+    }
+    setName(item);
+  };
+
+  //Description Handler
+  const descriptionHandler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 200) {
+      setDeserror(true);
+    } else {
+      setDeserror(false);
+    }
+    setDescription(item);
+  };
+  //Company Handler
+  const companyHandler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setComperror(true);
+    } else {
+      setComperror(false);
+    }
+    setCompany(item);
+  };
+  //Info1 Handler
+  const info1Handler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setinfo1error(true);
+    } else {
+      setinfo1error(false);
+    }
+    setinfo1(item);
+  };
+  //Info2 Handler
+  const info2Handler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setinfo2error(true);
+    } else {
+      setinfo2error(false);
+    }
+    setinfo2(item);
+  };
+  //Info3 Handler
+  const info3Handler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setinfo3error(true);
+    } else {
+      setinfo3error(false);
+    }
+    setinfo3(item);
+  };
+  //Info4 Handler
+  const info4Handler = (e) => {
+    let item = e.target.value;
+    if (item.length < 3 || item.length > 20) {
+      setinfo4error(true);
+    } else {
+      setinfo4error(false);
+    }
+    setinfo4(item);
+  };
+
+
 
   return (
     <div className="NewComponent">
@@ -199,10 +302,18 @@ const NewComponent = (props) => {
           <input
             type="text"
             placeholder="Enter Company Name "
-            onChange={(e) => {
-              setCompany(e.target.value);
-            }}
+            onChange={companyHandler}
+            // onChange={(e) => {
+            //   setName(e.target.value);
+            // }}
           />
+          {comperror ? (
+            <span className='error-handler'>
+              Company Name must be greater than 3 and less than 20 characters
+            </span>
+          ) : (
+            ''
+          )}
         </div>
 
         <div className="addProductItem" style={{ marginRight: "90px" }}>
@@ -210,10 +321,18 @@ const NewComponent = (props) => {
           <input
             type="text"
             placeholder="Enter Product Name"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
+            onChange={nameHandler}
+            // onChange={(e) => {
+            //   setName(e.target.value);
+            // }}
           />
+          {nameerror ? (
+            <span className='error-handler'>
+              Product Name must be greater than 3 and less than 20 characters
+            </span>
+          ) : (
+            ''
+          )}
         </div>
         <div className="addProductItem" style={{ marginRight: "230px" }}>
           <label>Price</label>
@@ -230,20 +349,36 @@ const NewComponent = (props) => {
             <input
               type="text"
               placeholder="Enter Info#1"
-              onChange={(e) => {
-                setinfo1(e.target.value);
-              }}
+              onChange={info1Handler}
+              // onChange={(e) => {
+              //   setName(e.target.value);
+              // }}
             />
+            {info1error ? (
+              <span className='error-handler'>
+                Info1 must be greater than 3 and less than 20 characters
+              </span>
+            ) : (
+              ''
+            )}
           </div>
           <div className="addProductItem">
             <label>Info#2</label>
             <input
               type="text"
               placeholder="Enter Info#2"
-              onChange={(e) => {
-                setinfo2(e.target.value);
-              }}
-            />
+              onChange={info2Handler}
+            // onChange={(e) => {
+            //   setName(e.target.value);
+            // }}
+          />
+          {info2error ? (
+            <span className='error-handler'>
+              Info2 must be greater than 3 and less than 20 characters
+            </span>
+          ) : (
+            ''
+          )}
           </div>
 
           <div className="addProductItem">
@@ -251,10 +386,18 @@ const NewComponent = (props) => {
             <input
               type="text"
               placeholder="Enter Info#3"
-              onChange={(e) => {
-                setinfo3(e.target.value);
-              }}
-            />
+              onChange={info3Handler}
+            // onChange={(e) => {
+            //   setName(e.target.value);
+            // }}
+          />
+          {info3error ? (
+            <span className='error-handler'>
+              Info3 must be greater than 3 and less than 20 characters
+            </span>
+          ) : (
+            ''
+          )}
           </div>
 
           <div className="addProductItem">
@@ -262,10 +405,18 @@ const NewComponent = (props) => {
             <input
               type="text"
               placeholder="Enter Info#4"
-              onChange={(e) => {
-                setinfo4(e.target.value);
-              }}
-            />
+              onChange={info4Handler}
+            // onChange={(e) => {
+            //   setName(e.target.value);
+            // }}
+          />
+          {info4error ? (
+            <span className='error-handler'>
+              Info4 must be greater than 3 and less than 20 characters
+            </span>
+          ) : (
+            ''
+          )}
           </div>
           <div className="addProductItem">
             <label>Site</label>
@@ -287,10 +438,18 @@ const NewComponent = (props) => {
             className="textfield"
             type="text"
             placeholder="Enter Product Description"
-            onChange={(e) => {
-              setDescription(e.target.value);
-            }}
+            onChange={descriptionHandler}
+            // onChange={(e) => {
+            //   setName(e.target.value);
+            // }}
           />
+          {deserror ? (
+            <span className='error-handler'>
+              Description must be greater than 3 and less than 200 characters
+            </span>
+          ) : (
+            ''
+          )}
         </div>
 
         {isSocket && (
