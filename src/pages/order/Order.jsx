@@ -43,14 +43,22 @@ const Order = (props) => {
   const [phoneNo, setphoneNo] = useState("nothing");
   const [paidAt, setpaidAt] = useState("nothing");
   const [createdAt, setcreateAt] = useState("nothing");
+  const[link1,setLink1] = useState("");
   const [delieveredAt, setDelieveredAt] = useState("nothing");
   const [status, setStatus] = useState("");
   const [type, settype] = useState("nothing");
-  const [address, setaddress] = useState("nothing");
+  const [address, setaddress] = useState("");
   const [amount, setamount] = useState("nothing");
   const [keyword, setKeyword] = useState('');
+  const[orderid,setOrderid]= useState("");
   // console.log(orders.address);
 
+  // console.log("address");
+  // console.log(link1)
+//   console.log(orderid)
+//   // console.log(orders[0]?.address?.line1)
+// console.log("orders");
+// console.log(orders)
   //console.log(orders[0].address)
   const getData = () => {
     apiService.getOrders(page, perPage).then((data) => {
@@ -76,22 +84,25 @@ const Order = (props) => {
   // };
 
   function handleView(p) {
-    console.log(p._id);
-    apiService.get("/api/orders/find/" + p._id).then((res) => {
-      console.log(res.data);
+    // console.log(p._id);
+    apiService.get("/api/orders/find/" + orderid).then((data) => {
+      console.log("res")
+      // console.log(data.data.address.line1);
+      setCity(data.data.address.city);
+      setphoneNo(data.data.phoneNo);
+      setpaidAt(data.data.paidAt);
+      setcreateAt(data.data.createdAt);
+      setDelieveredAt(data.data.deliveredAt);
+      setStatus(data.data.status);
+      settype(data.data.type);
+      // setaddress(res.data.address);
+      setamount(data.data.amount);
+      setLink1(data.data.address.line1)
+      // setid(res.data._id);
+      handleOpen();
       //console.log(res.data.user.name);
       //setName(res.data.user.name);
-      setCity(res.data.city);
-      setphoneNo(res.data.phoneNo);
-      setpaidAt(res.data.paidAt);
-      setcreateAt(res.data.createdAt);
-      setDelieveredAt(res.data.deliveredAt);
-      setStatus(res.data.status);
-      settype(res.data.type);
-      setaddress(res.data.address);
-      setamount(res.data.amount);
-      setid(res.data._id);
-      handleOpen();
+      
     });
   }
   //const newid = props.match.params.id;
@@ -176,7 +187,10 @@ const Order = (props) => {
                   {/* <button className="edit-btn" onClick={handleOpen}></button> */}
                   <EditOutlined
                     className="ActionIcon"
-                    onClick={() => handleView(p)}
+                    onClick={() => {
+                      handleView(p);
+                      setOrderid(p._id);
+                    }}
                   >
                     View
                   </EditOutlined>
@@ -225,7 +239,7 @@ const Order = (props) => {
           <h3>City:</h3>
           <h4> {city}</h4>
           <h3>Address:</h3>
-          <h4>{address}</h4>
+          <h4>{link1}</h4>
           <h3>Phone No:</h3>
           <h4>{phoneNo}</h4>
           <h3>Created At:</h3>
