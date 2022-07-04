@@ -11,9 +11,9 @@ const Messanger = () => {
   const [name, setName] = React.useState("");
   const [newMessage, setNewMessage] = React.useState("");
   const [user, setUser] = React.useState("");
-  console.log("conversation")
-console.log(conversation)
-  console.log("chat")
+  console.log("conversation");
+  console.log(conversation);
+  console.log("chat");
   console.log(chat);
   //console.log(user);
 
@@ -46,7 +46,7 @@ console.log(conversation)
           });
       } catch (err) {
         console.log(err);
-        setMessages([])
+        setMessages([]);
       }
     };
     if (chat) {
@@ -100,12 +100,13 @@ console.log(conversation)
                 <div
                   className="chat"
                   key={index}
-                  onClick={() =>
-                     setChat(c._id)
-                     
-                  }
+                  onClick={() => {setChat(c._id) 
+                     setUser(c?.user?._id)}}
                 >
-                  <div className="chatTop" onClick={() => setUser(c?.user?._id)  } >
+                  <div
+                    className="chatTop"
+                    // onClick={() =>}
+                  >
                     <p className="sender">{c?.user?.name}</p>
 
                     {/* <p className="messageText">{chat.message}</p> */}
@@ -113,35 +114,44 @@ console.log(conversation)
                 </div>
               );
             })}
-
-                      </div>
+          </div>
         </div>
         <div className="chatBox">
           <div className="chatBoxWrapper">
             <h2 className="msg-title">Messages</h2>
-            
-            
+
             <hr />
 
             <div className="chatBoxTop">
-              {messages.map((m) => (
-                console.warn(user, m.sender.name),
-                <Messages key={m._id} message={m} own={m?.sender?._id !== user } name ={m.sender.name} />
-              ))}
+              {messages.map(
+                (m) => (
+                  console.warn(user, m.sender.name),
+                  (
+                    <Messages
+                      key={m._id}
+                      message={m}
+                      own={m?.sender?._id !== user}
+                      name={m.sender.name}
+                    />
+                  )
+                )
+              )}
             </div>
-            <div className="chatBoxBottom">
-              <textarea
-                className="chatMessageInput"
-                placeholder="write something..."
-                onChange={(e) => setNewMessage(e.target.value)}
-                value={newMessage}
-              >
-                {" "}
-              </textarea>
-              <button className="chatSubmitButton" onClick={handleSubmit}>
-                Send
-              </button>
-            </div>
+            {user && (
+              <div className="chatBoxBottom">
+                <textarea
+                  className="chatMessageInput"
+                  placeholder="write something..."
+                  onChange={(e) => setNewMessage(e.target.value)}
+                  value={newMessage}
+                >
+                  {" "}
+                </textarea>
+                <button className="chatSubmitButton" onClick={handleSubmit}>
+                  Send
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
