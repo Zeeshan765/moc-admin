@@ -52,7 +52,7 @@ const orderid= props.match.params.id;
         </div>
       ) : (
     <div className='orderList'>
-    <h1>User Orders</h1>
+    <h1 className="addCompTitle">User Orders</h1>
 
 
 {detail.map((p) => (
@@ -60,25 +60,25 @@ const orderid= props.match.params.id;
     <div className='main-box'>
 
 
-<h2>Order-Id</h2>
+<h2 className='subheadings'>Order-Id</h2>
 <h3>{p._id}</h3>
-
-<h2>Order Amount</h2>
-<h3>{p.amount}</h3>
-
-<h2>Order Date</h2>
+<br></br>
+<h2 className='subheadings'>Order Amount</h2>
+<h3>Rs.{p.amount}</h3>
+<br></br>
+<h2 className='subheadings'>Order Date</h2>
 <h3>{p.createdAt}</h3>
 <hr />
-<h2>Order Items</h2>
+<h2 className='subheadings'>Order Items</h2>
 
 {p.orderItems.map((o) => (
 
     <div className='order-items'>
-<h3>Product Id:{o._id}</h3>
-<h3>Product Name:{o.name}</h3>
+<h3>Product Id: <span className='itemText'>{o._id}</span></h3>
+<h3>Product Name: <span className='itemText'>{o.name}</span></h3>
 
-<h3>Product Price:{o.price}</h3>
-<h3>Product Quantity:{o.quantity}</h3>
+<h3>Product Price: <span className='itemText'>Rs.{o.price}</span></h3>
+<h3>Product Quantity: <span className='itemText'>{o.quantity}</span></h3>
 {/* <hr /> */}
 </div>
 

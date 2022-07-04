@@ -14,4 +14,9 @@ border: 1px solid black;
 
 
   }
-  
+  .subheadings{
+    color: rgb(168, 43, 226);
+  }
+  .itemText{
+    font-weight: lighter;
+  }
