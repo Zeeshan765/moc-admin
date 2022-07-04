@@ -8,8 +8,10 @@ const Messanger = () => {
   const [conversation, setConversation] = React.useState([]);
   const [chat, setChat] = React.useState(null);
   const [own, setOwn] = React.useState(false);
+  const [name, setName] = React.useState("");
   const [newMessage, setNewMessage] = React.useState("");
   const [user, setUser] = React.useState("");
+  console.log("conversation")
 console.log(conversation)
   console.log("chat")
   console.log(chat);
@@ -98,9 +100,12 @@ console.log(conversation)
                 <div
                   className="chat"
                   key={index}
-                  onClick={() => setChat(c._id)}
+                  onClick={() =>
+                     setChat(c._id)
+                     
+                  }
                 >
-                  <div className="chatTop" onClick={() => setUser(c?.user?._id)} >
+                  <div className="chatTop" onClick={() => setUser(c?.user?._id)  } >
                     <p className="sender">{c?.user?.name}</p>
 
                     {/* <p className="messageText">{chat.message}</p> */}
@@ -114,12 +119,14 @@ console.log(conversation)
         <div className="chatBox">
           <div className="chatBoxWrapper">
             <h2 className="msg-title">Messages</h2>
+            
+            
             <hr />
 
             <div className="chatBoxTop">
               {messages.map((m) => (
-                console.warn(user, m.sender),
-                <Messages key={m._id} message={m} own={m?.sender?._id !== user} />
+                console.warn(user, m.sender.name),
+                <Messages key={m._id} message={m} own={m?.sender?._id !== user } name ={m.sender.name} />
               ))}
             </div>
             <div className="chatBoxBottom">
