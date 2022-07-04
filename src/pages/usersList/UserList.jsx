@@ -141,7 +141,24 @@ const UserList = (props) => {
                   >
                     Delete
                   </DeleteOutlineOutlined>
+                  <button
+                   onClick={(e) => {
+                    //console.log("navigate to update");
+                    
+                      props.history.push("/user-order/" + p._id);
+                     
+                  }}
+                  
+                  
+                  >View Order</button>
                 </td>
+
+                
+                  
+
+
+
+                
               </tr>
             ))}
           </tbody>

@@ -160,11 +160,7 @@ const Order = (props) => {
     <>
       <div className='productList'>
         <OrderFeatureboxes />
-        <input
-          className='search1'
-          placeholder='Search...'
-          onChange={(e) => setKeyword(e.target.value.toLowerCase())}
-        />
+        
         <table className='data-table'>
           <thead>
             <tr>

@@ -1,0 +1,17 @@
+.orderList {
+    flex: 4;
+    padding-top: 40px;
+    margin-top: 2rem;
+  }
+
+.main-box{
+width:70%;
+margin-top: 10px;
+margin-left: 20px;
+/* margin: auto; */
+height:500px;
+border: 1px solid black;
+
+
+  }
+  
