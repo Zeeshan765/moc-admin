@@ -124,9 +124,9 @@ const ComponentList = (props) => {
           <thead>
             <tr>
               <th>Component Id</th>
-              <th onClick={() => sorting("name")}>Component Name <ImportExportIcon className='sortIcon' /></th>
-              <th onClick={() => sorting("price")}>Price <ImportExportIcon className='sortIcon' /></th>
-              <th onClick={() => sorting("category")}>Category <ImportExportIcon className='sortIcon' /></th>
+              <th>Component Name <ImportExportIcon className='sortIcon'  onClick={() => sorting("name")}/></th>
+              <th>Price <ImportExportIcon className='sortIcon'  onClick={() => sorting("price")} /></th>
+              <th>Category <ImportExportIcon className='sortIcon' onClick={() => sorting("category")} /></th>
               <th>Action</th>
             </tr>
           </thead>

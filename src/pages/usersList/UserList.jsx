@@ -99,8 +99,8 @@ const UserList = (props) => {
           <thead>
             <tr>
               <th>User Id</th>
-              <th  onClick={() => sorting('name')}>User Name <ImportExportIcon className='sortIcon' /> </th>
-              <th onClick={() => sorting('email')}>Email <ImportExportIcon className='sortIcon' /></th>
+              <th>User Name <ImportExportIcon className='sortIcon'  onClick={() => sorting('name')} /> </th>
+              <th>Email <ImportExportIcon className='sortIcon'  onClick={() => sorting('email')}/></th>
               <th>Phone No </th>
 
               <th>Actions</th>

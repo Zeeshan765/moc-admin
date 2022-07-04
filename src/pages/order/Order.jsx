@@ -51,6 +51,7 @@ const Order = (props) => {
   const [amount, setamount] = useState("nothing");
   const [keyword, setKeyword] = useState('');
   const[orderid,setOrderid]= useState("");
+  const[user,setUser]=useState("");
   // console.log(orders.address);
 
   // console.log("address");
@@ -87,7 +88,7 @@ const Order = (props) => {
     // console.log(p._id);
     apiService.get("/api/orders/find/" + orderid).then((data) => {
       console.log("res")
-      // console.log(data.data.address.line1);
+       console.log(data.data);
       setCity(data.data.address.city);
       setphoneNo(data.data.phoneNo);
       setpaidAt(data.data.paidAt);
@@ -95,6 +96,7 @@ const Order = (props) => {
       setDelieveredAt(data.data.deliveredAt);
       setStatus(data.data.status);
       settype(data.data.type);
+      setUser(data.data.user.name);
       // setaddress(res.data.address);
       setamount(data.data.amount);
       setLink1(data.data.address.line1)
@@ -109,7 +111,7 @@ const Order = (props) => {
   const orderupdate = (e) => {
     e.preventDefault();
     apiService
-      .put("/api/orders/status/" + id, { status })
+      .put("/api/orders/status/" + orderid, { status })
       .then((data) => {
         toast.success("Order update successfully", {
           position: toast.POSITION.TOP_LEFT,
@@ -165,9 +167,9 @@ const Order = (props) => {
             <tr>
               <th>User Id</th>
               <th>Order Id</th>
-              <th onClick={() => sorting("amount")}>Total Amount <ImportExportIcon className='sortIcon' /></th>
-              <th onClick={() => sorting("status")}>Status <ImportExportIcon className='sortIcon' /></th>
-              <th onClick={() => sorting("type")}>Order Type <ImportExportIcon className='sortIcon' /></th>
+              <th>Total Amount <ImportExportIcon className='sortIcon' onClick={() => sorting("amount")}/></th>
+              <th>Status <ImportExportIcon className='sortIcon' onClick={() => sorting("status")} /></th>
+              <th>Order Type <ImportExportIcon className='sortIcon' onClick={() => sorting("type")} /></th>
               <th>Order Date</th>
               <th>Action</th>
             </tr>
@@ -233,9 +235,9 @@ const Order = (props) => {
           </button>
           <h1>Order Details</h1>
           <h3>Order Id:</h3>
-          <h4>{id}</h4>
-          {/* <h3>UserName:</h3>
-          <h4>{name}</h4> */}
+          <h4>{orderid}</h4>
+          <h3>UserName:</h3>
+          <h4>{user}</h4>
           <h3>City:</h3>
           <h4> {city}</h4>
           <h3>Address:</h3>

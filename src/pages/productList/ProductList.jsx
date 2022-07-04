@@ -131,10 +131,10 @@ const ProductList = (props) => {
           <thead>
             <tr>
               <th>Product Id</th>
-              <th onClick={() => sorting('name')}>Product Name <ImportExportIcon className='sortIcon' /> </th>
-              <th onClick={() => sorting('price')}>Price <ImportExportIcon className='sortIcon' /></th>
-              <th onClick={() => sorting('company')}>Brand <ImportExportIcon className='sortIcon' /> </th>
-              <th onClick={() => sorting('category')}>Category <ImportExportIcon className='sortIcon' /></th>
+              <th>Product Name <ImportExportIcon className='sortIcon'onClick={() => sorting('name')} /> </th>
+              <th>Price <ImportExportIcon className='sortIcon' onClick={() => sorting('price')}/></th>
+              <th>Brand <ImportExportIcon className='sortIcon' onClick={() => sorting('company')} /> </th>
+              <th>Category <ImportExportIcon className='sortIcon'onClick={() => sorting('category')} /></th>
               
               <th>Actions</th>
             </tr>
