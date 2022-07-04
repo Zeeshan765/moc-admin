@@ -146,10 +146,13 @@ const Order = (props) => {
   const statusColor = (status) => {
     if (status === "Pending") {
       return "#cf9f0e";
-    } else if (status === "Delivered") {
+    } else if (status === "Processing") {
       return "#28a745";
-    } else if (status === "cancelled") {
+    } else if (status === "Delivered") {
       return "#dc3545";
+    }
+    else if (status === "Cancelled") {
+      return "#FF0000";
     }
   };
 
@@ -267,6 +270,7 @@ const Order = (props) => {
             <option value="Pending"> Pending</option>
             <option value="Processing">Processing</option>
             <option value="Delivered">Delivered</option>
+            <option value="Cancelled">Cancelled</option>
           </select>
           <button className="update-btn" onClick={orderupdate}>
             Update
