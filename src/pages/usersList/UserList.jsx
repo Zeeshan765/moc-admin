@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react';
-import './userList.css';
-import { toast } from 'react-toastify';
-import Pagination from '@material-ui/lab/Pagination';
-import { Modal, Box } from '@material-ui/core';
-import { DeleteOutlineOutlined } from '@material-ui/icons';
-import ImportExportIcon from '@material-ui/icons/ImportExport';
-import axios from 'axios';
+import React, { useEffect } from "react";
+import "./userList.css";
+import { toast } from "react-toastify";
+import Pagination from "@material-ui/lab/Pagination";
+import { Modal, Box } from "@material-ui/core";
+import { DeleteOutlineOutlined } from "@material-ui/icons";
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import ImportExportIcon from "@material-ui/icons/ImportExport";
+import axios from "axios";
 
-import { useState } from 'react';
-import apiService from '../../services/ApiService';
-import {
- 
-  Search,
-} from "@material-ui/icons";
+import { useState } from "react";
+import apiService from "../../services/ApiService";
+import { Search } from "@material-ui/icons";
 const UserList = (props) => {
   const [user, setUser] = useState([]);
   const page = props.match.params.page ? props.match.params.page : 1;
@@ -22,19 +20,19 @@ const UserList = (props) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   //id of the user to be deleted
-  const [id, setId] = useState('');
-  const [keyword, setKeyword] = useState('');
-  const [sortorder, setSortorder] = useState('ASC');
+  const [id, setId] = useState("");
+  const [keyword, setKeyword] = useState("");
+  const [sortorder, setSortorder] = useState("ASC");
 
   console.log(id);
   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    bgcolor: "background.paper",
+    border: "2px solid #000",
     boxShadow: 24,
     p: 4,
   };
@@ -49,7 +47,7 @@ const UserList = (props) => {
   React.useEffect(getData, [page, perPage]);
 
   function handleView() {
-    console.log('view');
+    console.log("view");
     setOpen(true);
   }
 
@@ -68,39 +66,51 @@ const UserList = (props) => {
 
   //Sorting the Table Head
   const sorting = (col) => {
-    if (sortorder === 'ASC') {
+    if (sortorder === "ASC") {
       const sorted = [...user].sort((a, b) =>
         a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
       );
       setUser(sorted);
-      setSortorder('DSC');
+      setSortorder("DSC");
     }
 
-    if (sortorder === 'DSC') {
+    if (sortorder === "DSC") {
       const sorted = [...user].sort((a, b) =>
         a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
       );
       setUser(sorted);
-      setSortorder('ASC');
+      setSortorder("ASC");
     }
   };
 
   return (
     <>
-      <div className='productList'>
-        <p className='usersText'>Users List</p>
+      <div className="productList">
+        <p className="usersText">Users List</p>
         <input
-          className='search1'
-          placeholder='Search...'
+          className="search1"
+          placeholder="Search..."
           onChange={(e) => setKeyword(e.target.value.toLowerCase())}
         />
 
-        <table className='data-table'>
+        <table className="data-table">
           <thead>
             <tr>
               <th>User Id</th>
-              <th>User Name <ImportExportIcon className='sortIcon'  onClick={() => sorting('name')} /> </th>
-              <th>Email <ImportExportIcon className='sortIcon'  onClick={() => sorting('email')}/></th>
+              <th>
+                User Name{" "}
+                <ImportExportIcon
+                  className="sortIcon"
+                  onClick={() => sorting("name")}
+                />{" "}
+              </th>
+              <th>
+                Email{" "}
+                <ImportExportIcon
+                  className="sortIcon"
+                  onClick={() => sorting("email")}
+                />
+              </th>
               <th>Phone No </th>
 
               <th>Actions</th>
@@ -117,7 +127,7 @@ const UserList = (props) => {
 
                 <td>
                   <DeleteOutlineOutlined
-                    className='ActionIconDelete'
+                    className="ActionIconDelete"
                     onClick={() => {
                       handleView();
                       setId(p._id);
@@ -141,24 +151,17 @@ const UserList = (props) => {
                   >
                     Delete
                   </DeleteOutlineOutlined>
-                  <button
-                   onClick={(e) => {
-                    //console.log("navigate to update");
-                    
+                  <VisibilityIcon
+                  className="ActionIconView"
+                    onClick={(e) => {
+                      //console.log("navigate to update");
+
                       props.history.push("/user-order/" + p._id);
-                     
-                  }}
-                  
-                  
-                  >View Order</button>
+                    }}
+                  >
+                    View Order
+                  </VisibilityIcon>
                 </td>
-
-                
-                  
-
-
-
-                
               </tr>
             ))}
           </tbody>
@@ -166,19 +169,19 @@ const UserList = (props) => {
         <div>
           <Pagination
             count={Math.ceil(total / perPage)}
-            className='paginationUserList'
-            variant='outlined'
-            shape='circlular'
-            color='secondary'
-            size='large'
+            className="paginationUserList"
+            variant="outlined"
+            shape="circlular"
+            color="secondary"
+            size="large"
             onChange={(e, value) => {
               console.log(value);
-              props.history.push('/users/' + value);
+              props.history.push("/users/" + value);
             }}
-          />{' '}
-          <p className='paginationTextUserList'>
-            Showing <b>{(page - 1) * perPage}</b> -{' '}
-            <b>{(page - 1) * perPage + user.length}</b> of <b>{total}</b>{' '}
+          />{" "}
+          <p className="paginationTextUserList">
+            Showing <b>{(page - 1) * perPage}</b> -{" "}
+            <b>{(page - 1) * perPage + user.length}</b> of <b>{total}</b>{" "}
             results
           </p>
         </div>
@@ -187,24 +190,24 @@ const UserList = (props) => {
           // className="modal"
           open={open}
           onClose={handleClose}
-          aria-labelledby='modal-modal-title'
-          aria-describedby='modal-modal-description'
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
             <h2>Are you Sure you want to delete ?</h2>
-            <div className='btn-group'>
-              <button className='btn-style' onClick={handleClose}>
+            <div className="btn-group">
+              <button className="btn-style" onClick={handleClose}>
                 No
               </button>
               <button
-                className='btn-style'
+                className="btn-style"
                 onClick={(e) => {
                   apiService
-                    .deleteUser('/api/user/' + id)
+                    .deleteUser("/api/user/" + id)
                     .then((data) => {
-                      toast.success('User Deleted Successfully', {
-                        theme: 'colored',
-                        position: 'top-left',
+                      toast.success("User Deleted Successfully", {
+                        theme: "colored",
+                        position: "top-left",
                       });
                       console.log(id);
 

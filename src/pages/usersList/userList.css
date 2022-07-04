@@ -51,6 +51,17 @@ th:hover {
   color: blue;
   cursor: pointer;
 }
+.ActionIconView{
+  cursor: pointer;
+  color: rgb(151, 39, 173);
+  padding: 9px;
+}
+.ActionIconView:hover{
+  background-color: rgb(151, 39, 173);
+  transition: 0.5s;
+  color: white;
+  border-radius: 15px;
+}
 .userListEdit {
   border: none;
   border-radius: 10px;
