@@ -372,7 +372,7 @@ const EditComponent = (props) => {
                 type="text"
                 placeholder="Enter Info#1"
                 value={info1}
-                onChange={nameHandler}
+                onChange={info1Handler}
                 // onChange={(e) => {
                 //   setName(e.target.value);
                 // }}
