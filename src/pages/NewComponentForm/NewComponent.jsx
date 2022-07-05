@@ -450,6 +450,19 @@ const NewComponent = (props) => {
           ) : (
             ''
           )}
+             <div className="addProductItem">
+          <label>Image</label>
+          <input
+            type="file"
+            id="file"
+            onChange={(e) => {
+              setImage(e.target.files[0]);
+            }}
+          />
+              <button className="addProductButton" onClick={handlecreate}>
+          Create
+        </button>
+        </div>
         </div>
 
         {isSocket && (
@@ -528,32 +541,21 @@ const NewComponent = (props) => {
             <div>
               <button
                 style={{ marginTop: "10px" }}
-                className="addProductItem"
+                className="addProductButton"
                 onClick={(e) => {
                   handleClick(e);
                 }}
               >
                 {" "}
-                Add Supported Socket
+                Add Socket
               </button>
             </div>
           </div>
         )}
 
-        <div className="addProductItem">
-          <label>Image</label>
-          <input
-            type="file"
-            id="file"
-            onChange={(e) => {
-              setImage(e.target.files[0]);
-            }}
-          />
-        </div>
+     
 
-        <button className="addProductButton" onClick={handlecreate}>
-          Create
-        </button>
+    
       </form>
     </div>
   );
