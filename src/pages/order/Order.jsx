@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import apiService from '../../services/ApiService';
-
+import VisibilityIcon from '@material-ui/icons/Visibility';
 import BasicModal from './BasicModal';
 import { toast } from 'react-toastify';
 import { Modal, Box } from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import './order.css';
-import { EditOutlined } from '@material-ui/icons';
+import { EditOutlined, EmailOutlined } from '@material-ui/icons';
 import green from '@material-ui/core/colors/green';
 import OrderFeatureboxes from '../../components/orderfeatureboxes/OrderFeatureboxes';
 const Order = (props) => {
@@ -204,7 +204,7 @@ const Order = (props) => {
                 <td>
                   {/* <button className="del-btn">Delete</button> */}
                   {/* <button className="edit-btn" onClick={handleOpen}></button> */}
-                  <EditOutlined
+                  <VisibilityIcon
                     className='ActionIcon'
                     onClick={() => {
                       handleView(p);
@@ -212,9 +212,9 @@ const Order = (props) => {
                     }}
                   >
                     View
-                  </EditOutlined>
+                  </VisibilityIcon>
 
-                  <button
+                  <EmailOutlined
                   className='email-btn'
                   onClick={(e) => {
                 apiService.post("/api/orders/sendemail/" + p._id).then((res) => {
@@ -228,7 +228,7 @@ const Order = (props) => {
                   .catch((err) => {
                     console.log(err);
                   });
-              }}>Send Email</button>
+              }}>Send Email</EmailOutlined>
                 </td>
 
                 

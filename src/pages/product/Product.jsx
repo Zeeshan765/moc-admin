@@ -386,7 +386,7 @@ const Product = (props) => {
             </div>
 
             <div className="addProductItem">
-              <label>Image</label>
+              <label>Current:</label>
               <img src={image1} alt="" />
             </div>
             <button

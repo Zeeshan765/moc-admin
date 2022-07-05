@@ -9,6 +9,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 const EditComponent = (props) => {
   const [name, setName] = useState("");
   const [coolingsockets, setCoolingsockets] = useState([]);
+  const [image1, setImage1] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [socket, setSocket] = useState("");
@@ -68,6 +69,7 @@ const EditComponent = (props) => {
       setName(res.data.name);
       setPrice(res.data.price);
       setDescription(res.data.description);
+      setImage1(res.data.picture);
       setSocket(res.data.socket);
       setRamSupport(res.data.ramSupport);
       setSize(res.data.size);
@@ -529,13 +531,13 @@ const EditComponent = (props) => {
                 <div>
                   <button
                     style={{ marginTop: "10px" }}
-                    className="addProductItem"
+                    className="editCompButton"
                     onClick={(e) => {
                       handleClick(e);
                     }}
                   >
                     {" "}
-                    Add Supported Socket
+                    Add Socket
                   </button>
                 </div>
               </div>
@@ -593,6 +595,10 @@ const EditComponent = (props) => {
                   setImage(e.target.files[0]);
                 }}
               />
+            </div>
+            <div className="addProductItem">
+              <label>Current:</label>
+              <img src={image1} alt="" />
             </div>
             <button
               className="editCompButton"
