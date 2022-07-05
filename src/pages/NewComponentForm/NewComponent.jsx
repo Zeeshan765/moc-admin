@@ -174,7 +174,7 @@ const NewComponent = (props) => {
   //Info1 Handler
   const info1Handler = (e) => {
     let item = e.target.value;
-    if (item.length < 3 || item.length > 20) {
+    if (item.length < 3 || item.length > 40) {
       setinfo1error(true);
     } else {
       setinfo1error(false);
@@ -184,7 +184,7 @@ const NewComponent = (props) => {
   //Info2 Handler
   const info2Handler = (e) => {
     let item = e.target.value;
-    if (item.length < 3 || item.length > 20) {
+    if (item.length < 3 || item.length > 40) {
       setinfo2error(true);
     } else {
       setinfo2error(false);
@@ -194,7 +194,7 @@ const NewComponent = (props) => {
   //Info3 Handler
   const info3Handler = (e) => {
     let item = e.target.value;
-    if (item.length < 3 || item.length > 20) {
+    if (item.length < 3 || item.length > 40) {
       setinfo3error(true);
     } else {
       setinfo3error(false);
@@ -204,7 +204,7 @@ const NewComponent = (props) => {
   //Info4 Handler
   const info4Handler = (e) => {
     let item = e.target.value;
-    if (item.length < 3 || item.length > 20) {
+    if (item.length < 3 || item.length > 40) {
       setinfo4error(true);
     } else {
       setinfo4error(false);
@@ -356,7 +356,7 @@ const NewComponent = (props) => {
             />
             {info1error ? (
               <span className='error-handler'>
-                Info1 must be greater than 3 and less than 20 characters
+                Info1 must be greater than 3 and less than 40 characters
               </span>
             ) : (
               ''
@@ -374,7 +374,7 @@ const NewComponent = (props) => {
           />
           {info2error ? (
             <span className='error-handler'>
-              Info2 must be greater than 3 and less than 20 characters
+              Info2 must be greater than 3 and less than 40 characters
             </span>
           ) : (
             ''
@@ -393,7 +393,7 @@ const NewComponent = (props) => {
           />
           {info3error ? (
             <span className='error-handler'>
-              Info3 must be greater than 3 and less than 20 characters
+              Info3 must be greater than 3 and less than 40 characters
             </span>
           ) : (
             ''
@@ -412,7 +412,7 @@ const NewComponent = (props) => {
           />
           {info4error ? (
             <span className='error-handler'>
-              Info4 must be greater than 3 and less than 20 characters
+              Info4 must be greater than 3 and less than 40 characters
             </span>
           ) : (
             ''
