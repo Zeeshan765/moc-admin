@@ -2,7 +2,7 @@
   margin: 20px;
   padding: 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 12px 2px #1a0c27, 2px 2px 18px 2px #300957 !important;
 }
 
 .chartTitle {

@@ -2,21 +2,30 @@
     flex: 4;
     padding-top: 40px;
     margin-top: 2rem;
+
   }
 
 .main-box{
 width:70%;
-margin-top: 10px;
+margin-top: 20px;
 margin-left: 20px;
 /* margin: auto; */
 height:500px;
-border: 1px solid black;
+/* border: 1px solid black; */
+box-shadow: 2px 6px 6px 0 #1a0c27, 4px 2px 18px 2px #300957 !important;
+border-radius: 20px;
 
 
   }
   .subheadings{
     color: rgb(168, 43, 226);
+    padding: 10px;
   }
   .itemText{
     font-weight: lighter;
+    padding: 10px;
+  }
+  .orderss{
+    padding-left: 10px;
+    padding-bottom: 10px;
   }

@@ -196,7 +196,7 @@ const Product = (props) => {
                 type="text"
                 value={name}
                 onChange={nameHandler}
-            // onChange={(e) => {
+            // onChange={(e) => { 
             //   setName(e.target.value);
             // }}
           />

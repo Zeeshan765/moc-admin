@@ -122,13 +122,13 @@
 }
 
 .productBottom {
-  padding: 20px;
+  padding: 20px; 
   /* background-color: bisque; */
   height: 90%;
   margin: 20px;
   margin-right: 40px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 6px 6px 0 #1a0c27, 4px 2px 18px 2px #300957 !important;
 }
 
 .productForm {
