@@ -213,7 +213,25 @@ const Order = (props) => {
                   >
                     View
                   </EditOutlined>
+
+                  <button
+                  className='email-btn'
+                  onClick={(e) => {
+                apiService.post("/api/orders/sendemail/" + p._id).then((res) => {
+                  console.log(res.data);
+                  toast.success("Email Sent  Successfully", {
+                    theme: "colored",
+                  });
+                  window.location.reload();
+                    
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              }}>Send Email</button>
                 </td>
+
+                
               </tr>
             ))}
           </tbody>

@@ -29,6 +29,7 @@ const OrderFeatureboxes = () => {
   const[pending,setPending]=useState("");
   const[processing,setProcessing]=useState("");
   const[delivered,setDelivered]=useState("");
+  const[cancelled,setCancelled]=useState("");
 
 
 
@@ -61,6 +62,18 @@ const getDelivered = () => {
 React.useEffect(getDelivered, []);
 
 
+//Get Cancelled Orders Count
+const getCancelled = () => {
+  apiService.get("/api/orders/get/cancelledorders").then((res) => {
+      setCancelled(res.data);
+
+  });
+}
+React.useEffect(getCancelled, []);
+
+
+
+
   return (
     <>
       <div className='featured'>
@@ -87,6 +100,17 @@ React.useEffect(getDelivered, []);
           <span className='featuredTitle'>Delivered Orders</span>
           <div className='featuredMoneyContainer'>
             <span className='featuredMoneyDelivered'>{delivered}</span>
+            
+          </div>
+         
+        </div>
+
+
+        <div className='featuredItem_3'>
+        <Report className="TotUserIcon" />
+          <span className='featuredTitle'>Cancelled Orders</span>
+          <div className='featuredMoneyContainer'>
+            <span className='featuredMoneyDelivered'>{cancelled}</span>
             
           </div>
          
