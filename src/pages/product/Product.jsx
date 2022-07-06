@@ -136,7 +136,7 @@ const Product = (props) => {
   //Info1 Handler
   const info1Handler = (e) => {
     let item = e.target.value;
-    if (item.length < 3 || item.length > 20) {
+    if (item.length < 3 || item.length > 40) {
       setinfo1error(true);
     } else {
       setinfo1error(false);
@@ -146,7 +146,7 @@ const Product = (props) => {
   //Info2 Handler
   const info2Handler = (e) => {
     let item = e.target.value;
-    if (item.length < 3 || item.length > 20) {
+    if (item.length < 3 || item.length > 40) {
       setinfo2error(true);
     } else {
       setinfo2error(false);
@@ -156,7 +156,7 @@ const Product = (props) => {
   //Info3 Handler
   const info3Handler = (e) => {
     let item = e.target.value;
-    if (item.length < 3 || item.length > 20) {
+    if (item.length < 3 || item.length > 40) {
       setinfo3error(true);
     } else {
       setinfo3error(false);
@@ -166,7 +166,7 @@ const Product = (props) => {
   //Info4 Handler
   const info4Handler = (e) => {
     let item = e.target.value;
-    if (item.length < 3 || item.length > 20) {
+    if (item.length < 3 || item.length > 40) {
       setinfo4error(true);
     } else {
       setinfo4error(false);
@@ -230,7 +230,7 @@ const Product = (props) => {
                 type="text"
                 placeholder="Enter Info#1"
                 value={info1}
-                onChange={nameHandler}
+                onChange={info1Handler}
             // onChange={(e) => {
             //   setName(e.target.value);
             // }}
