@@ -271,32 +271,33 @@ const Order = (props) => {
           <h1>Order Details</h1>
           <h3>Order Id:</h3>
           <h4>{orderid}</h4>
-          <h3>UserName:</h3>
-          <h4>{user}</h4>
-          <h3>City:</h3>
-          <h4> {city}</h4>
+          <h3>UserName:{user}</h3>
+          
+          {/* <h3>City:</h3>
+          <h4> {city}</h4> */}
           <h3>Address:</h3>
-          <h4>{link1}</h4>
+          <h4>{link1},{city}</h4>
           {/* <h3>Created At:</h3>
           <h4>{createdAt}</h4>
           <h3>Paid At:</h3>
           <h4>{paidAt}</h4> */}
-          <h3>Amount:</h3>
-          <h4>{amount}</h4>
+          <h3>Amount:  {amount}</h3>
+          
           <h3>Order Items:</h3>
           {orderItems.map((p, index) => (
-            <div key={index}>
-              <h4>Product Id :{p._id}</h4>
-              <h4>Product Name :{p.name}</h4>
-              <h4>Product Price :{p.price}</h4>
-              <h4>Product Quantity{p.quantity}</h4>
+            <div style={{flexDirection:"row"}} key={index}>
+        <div style={{alignItems:"center"}}>
+              <h4>Name :{p.name}</h4>
+              
+              <h4>Price:{p.price}</h4>
+              </div>
             </div>
           ))}
           <h3>Payment Method:</h3>
           <h4>{type}</h4>
           <h3>Status:</h3>
           <h4>{status}</h4>
-          <h2>Update Status</h2>
+          <h3>Update Status</h3>
           <select
             className='statusDrop'
             id=''
